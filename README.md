@@ -50,3 +50,48 @@ Een groot deel van de tijd ging naar:
 - Kijken of ik scroll-gedrag (snap of animatie) wil toevoegen
 - Kleine visuele details afronden en opruimen in de code
 
+---
+
+# Dag 2 – Onepager
+
+---
+
+## Wat heb ik gedaan?
+Vandaag ben ik verder gegaan met het uitwerken van mijn onepager.  
+Ik heb gewerkt aan:
+- Het toevoegen van **foto’s** aan de pagina
+- Het animeren van deze foto’s zodat ze onderdeel worden van de beleving
+- Het verbeteren van animaties zodat ze meer reageren op **interactie met de website** (zoals hover en focus)
+- Het verfijnen van timing en easing zodat animaties rustiger en natuurlijker aanvoelen
+- De eerste stappen gezet in het verbeteren van de **responsiveness**
+
+De focus lag minder op nieuwe features en meer op het **verbeteren en verfijnen** van wat er al stond.
+
+---
+
+## Hoe lang duurde het?
+Ongeveer **6 uur**.
+
+Veel tijd ging zitten in:
+- Het tweaken van bestaande animaties
+- Testen hoe interacties aanvoelen tijdens gebruik
+- Kijken wat wel en niet werkt op verschillende schermgroottes
+
+---
+
+## Wat heb ik geleerd?
+- Dat animaties sterker worden wanneer ze reageren op **gebruikersgedrag** in plaats van automatisch afspelen
+- Hoe kleine aanpassingen in timing en easing een groot verschil maken in gevoel
+- Dat responsiveness beter werkt als je er vroeg mee begint in plaats van alles achteraf aan te passen
+- Hoe belangrijk het is om tussendoor te testen in de browser en niet alleen vanuit de code te denken
+
+---
+
+## Wat ga ik morgen doen?
+- Verder werken aan de **responsiveness** van de website
+- Bestaande onderdelen verder tweaken en opschonen
+- Kleine visuele en interactieve details afronden
+- Laten zien wat ik tot nu toe heb gemaakt en mijn keuzes toelichten  
+- De onepager verder richting een afgerond geheel brengen (ook al is hij morgen nog niet helemaal af)
+
+
