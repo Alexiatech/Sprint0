@@ -1,0 +1,169 @@
+<!DOCTYPE html <html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexia's Page</title>
+  <link rel="stylesheet" href="css/Style.css">
+  <link rel="icon" href="Images/book.png">
+  <script src="script/main.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+  <div class="cursor c1"></div>
+  <div class="cursor c2"></div>
+  <div class="cursor c3"></div>
+  <aside>
+    <details>
+      <summary aria-label="Toggle muziek speler">&lt;</summary>
+
+      <iframe data-testid="embed-iframe" style="border-radius:12px"
+        src="https://open.spotify.com/embed/playlist/7zeFMnpHNfmy1fBHWSBACT?utm_source=generator" width="100%"
+        height="352" frameBorder="0" allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </details>
+  </aside>
+  <main>
+
+    <!-- one-page/sectie 1 -->
+    <section>
+
+    
+        <ul>
+          <li><img src="Images/Arizona.jpg" alt="Caraval"></li>
+          <li><img src="Images/grandcanyon.jpg" alt="Fourth Wing"></li>
+          <li><img src="Images/London.jpg" alt="House of Many Ways"></li>
+          <li><img src="Images/Oxford.jpg" alt="Howl's Moving Castle"></li>
+          <li><img src="Images/salzburg.jpg" alt="Kiki's Delivery Service"></li>
+          <li><img src="Images/Sedona.jpg" alt="Art of Not Giving a F*ck"></li>
+          <li><img src="Images/oxford_center.jpg" alt="Auror King"></li>
+          <li><img src="Images/seattle.jpg" alt="Trail of the Sun Queen"></li>
+          <li><img src="Images/Vienna.jpg" alt="The Rose Bargain"></li>
+          <li><img src="Images/Vienna_palace.jpg" alt="Ultra-Processed People"></li>
+          <li><img src="Images/vienna_me.jpg" alt="Ultra-Processed People"></li>
+        </ul>
+      
+
+      <h1>Hi, I'm Alexia.
+
+      </h1>
+      <p class="hover-text">
+        <span>A</span>
+        <span>CMD</span>
+        <span>student</span>
+        <span>who</span>
+        <span>enjoys</span>
+        <span>designing,</span>
+        <span>building,</span>
+        <span>and</span>
+        <span>solving</span>
+        <span>problems</span>
+        <span>—</span>
+        <span>always</span>
+        <span>curious,</span>
+        <span>always</span>
+        <span class="exploring">
+          exploring
+          <span class="balls" aria-hidden="true">
+            <span class="ball">🌍</span>
+            <span class="ball">🌎</span>
+            <span class="ball">🌏</span>
+          </span>
+        </span>
+      </p>
+      
+    </section>
+
+    <!-- one-page/sectie 2 hobbies -->
+    <section>
+      <ul>
+        <li><img src="Images/caraval.jpg" alt="Caraval"></li>
+        <li><img src="Images/fate of the sun king.jpg" alt="Fate of the Sun King"></li>
+        <li><img src="Images/fourth wing.jpg" alt="Fourth Wing"></li>
+        <li><img src="Images/house of many ways.jpg" alt="House of Many Ways"></li>
+        <li><img src="Images/howls moving castle.jpg" alt="Howl's Moving Castle"></li>
+        <li><img src="Images/kiki's_delevery.jpg" alt="Kiki's Delivery Service"></li>
+        <li><img src="Images/the art of not giving a fuck.avif" alt="Art of Not Giving a F*ck"></li>
+        <li><img src="Images/the aurorking .jpg" alt="Auror King"></li>
+        <li><img src="Images/the trail of the sun queen.jpg" alt="Trail of the Sun Queen"></li>
+        <li><img src="Images/therose_Bargain.jpg" alt="The Rose Bargain"></li>
+        <li><img src="Images/ultraprocessed .jpg" alt="Ultra-Processed People"></li>
+      </ul>
+    </section>
+    
+
+     <!-- one-page/sectie 3 questions -->
+    <section aria-labelledby="quiz-title" class="quiz">
+      <h2 id="quiz-title">2 true's and a lie</h2>
+      <p>Kies welke uitspraak niet waar is:</p>
+
+      <form class="quiz__form" data-correct="b">
+        <fieldset>
+          <legend class="sr-only">Kies één optie</legend>
+
+          <label class="quiz__option">
+            <input type="radio" name="answer" value="a" />
+            Ik heb 3 slangen 🐍
+          </label>
+
+          <label class="quiz__option">
+            <input type="radio" name="answer" value="b" />
+            Mijn familie komt uit italië 🇮🇹
+          </label>
+
+          <label class="quiz__option">
+            <input type="radio" name="answer" value="c" />
+            ik ben dol op ananas op pizza. 🍕
+          </label>
+        </fieldset>
+
+        <p class="quiz__feedback" role="status" aria-live="polite"></p>
+        <button type="button" class="quiz__reset">Opnieuw</button>
+      </form>
+    </section>
+
+    <section class="goals" id="goals" aria-label="Leerdoelen">
+      <h2>Leerdoelen</h2>
+    
+      <div class="goals__grid" id="goalsStage">
+        <article class="goal" data-drag tabindex="0">
+          <h3>Interactie & beleving</h3>
+          <p>Micro-interacties en animatie gebruiken om een site meer gevoel te geven.</p>
+          <ul class="goal__tags" aria-label="Keywords">
+            <li>hover</li><li>motion</li><li>micro-animations</li><li>ervaring</li>
+          </ul>
+          <p class="goal__cmd">Verbeelden & conceptualiseren · Uitwerken & prototypen</p>
+        </article>
+    
+        <article class="goal" data-drag tabindex="0">
+          <h3>Technisch sterker</h3>
+          <p>CSS & JavaScript verdiepen en complexere interacties bouwen.</p>
+          <ul class="goal__tags" aria-label="Keywords">
+            <li>CSS</li><li>JS</li><li>structuur</li><li>debuggen</li>
+          </ul>
+          <p class="goal__cmd">Uitwerken & prototypen · Georganiseerd & ondernemend ontwerpen</p>
+        </article>
+    
+        <article class="goal" data-drag tabindex="0">
+          <h3>Bewust ontwerpen</h3>
+          <p>Kritischer kiezen wat ik maak, voor wie, en waarom het werkt.</p>
+          <ul class="goal__tags" aria-label="Keywords">
+            <li>gebruikers</li><li>keuzes</li><li>context</li><li>reflectie</li>
+          </ul>
+          <p class="goal__cmd">Oriënteren & begrijpen · Evalueren</p>
+        </article>
+      </div>
+    </section>
+
+
+  </main>
+</body>
+
+
+</html>
