@@ -379,53 +379,53 @@ document.addEventListener("DOMContentLoaded", () => {
    - haalt lijst quotes op, kiest random quote
    - fallback quote als API faalt
 ========================================================= */
-enableRandomMovie();
+// enableRandomMovie();
 
-async function enableRandomMovie() {
+// async function enableRandomMovie() {
 
-  // Basis URL van de API
-  const baseUrl = 'https://fdnd.directus.app';
+//   // Basis URL van de API
+//   const baseUrl = 'https://fdnd.directus.app';
   
-  // Endpoint waar alleen personen worden opgehaald
-  // waarvan fav_movie niet leeg is
-  const endpoint = '/items/person?filter[fav_movie][_nnull]=true';
+//   // Endpoint waar alleen personen worden opgehaald
+//   // waarvan fav_movie niet leeg is
+//   const endpoint = '/items/person?filter[fav_movie][_nnull]=true';
 
-  const URL = baseUrl + endpoint;
+//   const URL = baseUrl + endpoint;
 
-  try {
+//   try {
 
-    // Data ophalen van de API
-    const response = await fetch(URL);
+//     // Data ophalen van de API
+//     const response = await fetch(URL);
 
-    // JSON omzetten naar bruikbare data
-    const movieData = await response.json();
+//     // JSON omzetten naar bruikbare data
+//     const movieData = await response.json();
 
-    // Alle studenten opslaan in een array
-    const allStudents = movieData.data;
+//     // Alle studenten opslaan in een array
+//     const allStudents = movieData.data;
 
-    const button = document.querySelector('#random-movie-btn');
-    const resultBox = document.querySelector('#random-result');
+//     const button = document.querySelector('#random-movie-btn');
+//     const resultBox = document.querySelector('#random-result');
 
-    if (button) {
-      button.addEventListener('click', function () {
+//     if (button) {
+//       button.addEventListener('click', function () {
 
-        // Willekeurige index kiezen
-        const randomIndex = Math.floor(Math.random() * allStudents.length);
+//         // Willekeurige index kiezen
+//         const randomIndex = Math.floor(Math.random() * allStudents.length);
 
-        // Willekeurige student selecteren
-        const randomPerson = allStudents[randomIndex];
+//         // Willekeurige student selecteren
+//         const randomPerson = allStudents[randomIndex];
 
-        // Resultaat tonen in de HTML
-        resultBox.innerHTML = `
-          <p><strong>${randomPerson.name}</strong></p>
-          <p class="custom-data">
-            ${randomPerson.fav_movie}
-          </p>
-        `;
-      });
-    }
+//         // Resultaat tonen in de HTML
+//         resultBox.innerHTML = `
+//           <p><strong>${randomPerson.name}</strong></p>
+//           <p class="custom-data">
+//             ${randomPerson.fav_movie}
+//           </p>
+//         `;
+//       });
+//     }
 
-  } catch (error) {
-    console.error("Er ging iets mis bij het ophalen van de films:", error);
-  }
-}
+//   } catch (error) {
+//     console.error("Er ging iets mis bij het ophalen van de films:", error);
+//   }
+// }
