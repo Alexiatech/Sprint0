@@ -95,3 +95,85 @@ Veel tijd ging zitten in:
 - De onepager verder richting een afgerond geheel brengen (ook al is hij morgen nog niet helemaal af)
 
 
+# Weekly Nerd – Kilian Valkhof (Polyplane)
+
+## Wie was er?
+
+Tijdens deze Weekly Nerd kwam Kilian Valkhof spreken, de maker van Polyplane.
+
+Polyplane is een tool waarmee je je website tegelijkertijd kunt bekijken op meerdere schermformaten, zoals desktop, tablet en mobiel. Het is bedoeld om snel te zien hoe responsive je website echt is en of je media queries goed werken.
+
+Als front-end student vond ik dit meteen interessant, omdat responsive design iets is waar ik zelf ook veel mee bezig ben.
+
+---
+
+## Wat is mij bijgebleven?
+
+Wat mij vooral is bijgebleven, is dat veel dingen die wij snel met JavaScript proberen op te lossen, eigenlijk al mogelijk zijn met HTML en CSS.
+
+Hij liet bijvoorbeeld het `<dialog>` element zien.  
+In plaats van zelf een hele pop-up te bouwen met divs en veel JavaScript, kun je gebruikmaken van een ingebouwd HTML-element dat hier speciaal voor bedoeld is.
+
+Dat was voor mij echt een inzicht-moment.
+
+Ik merk namelijk dat ik vaak denk:
+"Dit moet met JavaScript."
+
+Maar soms kan het veel simpeler.
+
+---
+
+## Wat heb ik hiervan geleerd?
+
+Ik heb geleerd dat:
+
+- Het web al veel ingebouwde functionaliteit heeft.
+- Minder JavaScript je code overzichtelijker kan maken.
+- Simpelere oplossingen vaak stabieler zijn.
+- Je eerst moet kijken wat HTML en CSS kunnen voordat je naar JavaScript grijpt.
+
+Tijdens het werken aan mijn eigen OnePager merkte ik ook dat JavaScript snel complex wordt.  
+Bijvoorbeeld bij API’s of foutmeldingen — je bent veel tijd kwijt aan debuggen.
+
+Deze Weekly Nerd voelde daarom als een reminder:
+Het hoeft niet altijd ingewikkeld.
+
+---
+
+## Hoe heb ik dit toegepast?
+
+Ik heb in mijn eigen OnePager het `<dialog>` element gebruikt voor een pop-up.
+
+De structuur is HTML.  
+De styling is CSS.  
+Alleen de timing (via een timer) heb ik met JavaScript gedaan, zodat de pop-up automatisch verschijnt na een paar seconden.
+
+Dus ik heb geprobeerd bewuster om te gaan met wanneer ik JavaScript gebruik.
+
+---
+
+## Slides van de presentatie
+
+Hieronder een paar foto’s die ik tijdens de presentatie heb gemaakt:
+
+![Slide 1](./images/weekly-nerd/slide1.jpg)
+![Slide 2](./images/weekly-nerd/slide2.jpg)
+![Slide 3](./images/weekly-nerd/slide3.jpg)
+
+Deze slides laten goed zien dat veel oplossingen simpeler zijn dan we denken.
+
+---
+
+## Persoonlijke reflectie
+
+Deze Weekly Nerd heeft mij vooral laten nadenken over hoe ik code schrijf.
+
+Ik ben iemand die graag experimenteert en nieuwe dingen probeert (zoals API’s en interactieve elementen).  
+Maar soms is het goed om even terug te gaan naar de basis.
+
+Niet alles hoeft met extra JavaScript opgelost te worden.  
+Soms is minder juist sterker.
+
+Dat ga ik zeker meenemen in mijn volgende projecten.
+
+
