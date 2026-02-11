@@ -1,169 +1,370 @@
-<!DOCTYPE html <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alexia's Page</title>
-  <link rel="stylesheet" href="css/Style.css">
-  <link rel="icon" href="Images/book.png">
+
+  <link rel="icon" href="Images/book.png" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Font: headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet" />
+
+  <!-- JS: interactions (cursor, quiz, draggable, idle popup, weather, clock, quote) -->
   <script src="script/main.js" defer></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-
-
-
 </head>
 
 <body>
-  <div class="cursor c1"></div>
-  <div class="cursor c2"></div>
-  <div class="cursor c3"></div>
-  <aside>
+  <!-- =========================
+       CUSTOM CURSOR (3 lagen)
+       - decoratief: daarom aria-hidden
+       - op touch devices zetten we dit uit in CSS
+  ========================== -->
+  <div class="cursor c1" aria-hidden="true"></div>
+  <div class="cursor c2" aria-hidden="true"></div>
+  <div class="cursor c3" aria-hidden="true"></div>
+
+  <!-- =========================
+       SPOTIFY PLAYER (DETAILS)
+       - <details>/<summary> is semantisch: native open/dicht
+       - summary is de knop, iframe klapt uit
+  ========================== -->
+  <aside class="player" aria-label="Music player">
     <details>
       <summary aria-label="Toggle muziek speler">&lt;</summary>
-
-      <iframe data-testid="embed-iframe" style="border-radius:12px"
+      <iframe title="Spotify playlist" style="border-radius: 12px"
         src="https://open.spotify.com/embed/playlist/7zeFMnpHNfmy1fBHWSBACT?utm_source=generator" width="100%"
-        height="352" frameBorder="0" allowfullscreen=""
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
     </details>
   </aside>
-  <main>
 
-    <!-- one-page/sectie 1 -->
-    <section>
-
-    
-        <ul>
-          <li><img src="Images/Arizona.jpg" alt="Caraval"></li>
-          <li><img src="Images/grandcanyon.jpg" alt="Fourth Wing"></li>
-          <li><img src="Images/London.jpg" alt="House of Many Ways"></li>
-          <li><img src="Images/Oxford.jpg" alt="Howl's Moving Castle"></li>
-          <li><img src="Images/salzburg.jpg" alt="Kiki's Delivery Service"></li>
-          <li><img src="Images/Sedona.jpg" alt="Art of Not Giving a F*ck"></li>
-          <li><img src="Images/oxford_center.jpg" alt="Auror King"></li>
-          <li><img src="Images/seattle.jpg" alt="Trail of the Sun Queen"></li>
-          <li><img src="Images/Vienna.jpg" alt="The Rose Bargain"></li>
-          <li><img src="Images/Vienna_palace.jpg" alt="Ultra-Processed People"></li>
-          <li><img src="Images/vienna_me.jpg" alt="Ultra-Processed People"></li>
-        </ul>
-      
-
-      <h1>Hi, I'm Alexia.
-
-      </h1>
-      <p class="hover-text">
-        <span>A</span>
-        <span>CMD</span>
-        <span>student</span>
-        <span>who</span>
-        <span>enjoys</span>
-        <span>designing,</span>
-        <span>building,</span>
-        <span>and</span>
-        <span>solving</span>
-        <span>problems</span>
-        <span>—</span>
-        <span>always</span>
-        <span>curious,</span>
-        <span>always</span>
-        <span class="exploring">
-          exploring
-          <span class="balls" aria-hidden="true">
-            <span class="ball">🌍</span>
-            <span class="ball">🌎</span>
-            <span class="ball">🌏</span>
-          </span>
-        </span>
-      </p>
-      
+  <!-- =========================
+       HEADER = “widgets”
+       - weer (API + geolocation)
+       - klok (API + fallback)
+       - quote (API + fallback)
+  ========================== -->
+  <header class="topbar">
+    <section class="weather" aria-label="Weather">
+      <h2>Weather near me</h2>
+      <p id="wxStatus">Klik om het weer op te halen.</p>
+      <button id="wxBtn" type="button">Get my weather</button>
     </section>
 
-    <!-- one-page/sectie 2 hobbies -->
-    <section>
-      <ul>
-        <li><img src="Images/caraval.jpg" alt="Caraval"></li>
-        <li><img src="Images/fate of the sun king.jpg" alt="Fate of the Sun King"></li>
-        <li><img src="Images/fourth wing.jpg" alt="Fourth Wing"></li>
-        <li><img src="Images/house of many ways.jpg" alt="House of Many Ways"></li>
-        <li><img src="Images/howls moving castle.jpg" alt="Howl's Moving Castle"></li>
-        <li><img src="Images/kiki's_delevery.jpg" alt="Kiki's Delivery Service"></li>
-        <li><img src="Images/the art of not giving a fuck.avif" alt="Art of Not Giving a F*ck"></li>
-        <li><img src="Images/the aurorking .jpg" alt="Auror King"></li>
-        <li><img src="Images/the trail of the sun queen.jpg" alt="Trail of the Sun Queen"></li>
-        <li><img src="Images/therose_Bargain.jpg" alt="The Rose Bargain"></li>
-        <li><img src="Images/ultraprocessed .jpg" alt="Ultra-Processed People"></li>
+    <section class="timebox" aria-label="Time">
+      <h2 class="sr-only">Current time</h2>
+      <time id="clock" class="clock" aria-label="Current time" datetime=""></time>
+    </section>
+
+    <blockquote id="quote" class="quote" aria-label="Quote">
+      <p id="quoteText">Loading quote…</p>
+      <cite id="quoteAuthor"></cite>
+    </blockquote>
+  </header>
+
+  <main>
+    <!-- =========================
+         SECTION: INTRO
+         - foto stack + intro tekst
+         - class-based selectors i.p.v. nth-of-type
+    ========================== -->
+    <section class="intro" aria-label="Intro">
+      <ul class="polaroids" aria-label="Travel photos">
+        <li><img src="Images/Arizona.jpg" alt="Arizona" /></li>
+        <li><img src="Images/grandcanyon.jpg" alt="Grand Canyon" /></li>
+        <li><img src="Images/London.jpg" alt="London" /></li>
+        <li><img src="Images/Oxford.jpg" alt="Oxford" /></li>
+        <li><img src="Images/salzburg.jpg" alt="Salzburg" /></li>
+        <li><img src="Images/Sedona.jpg" alt="Sedona" /></li>
+        <li><img src="Images/oxford_center.jpg" alt="Oxford city center" /></li>
+        <li><img src="Images/seattle.jpg" alt="Seattle" /></li>
+        <li><img src="Images/Vienna.jpg" alt="Vienna" /></li>
+        <li><img src="Images/Vienna_palace.jpg" alt="Vienna palace" /></li>
+        <li><img src="Images/vienna_me.jpg" alt="Alexia in Vienna" /></li>
+      </ul>
+
+      <div class="intro__text">
+        <h1>Hi, I'm Alexia.</h1>
+
+        <!-- Hover text: elk woord is een <span> voor micro-interactie -->
+        <p class="hover-text">
+          <span>A</span>
+          <span>CMD</span>
+          <span>student</span>
+          <span>who</span>
+          <span>enjoys</span>
+          <span>designing,</span>
+          <span>building,</span>
+          <span>and</span>
+          <span>solving</span>
+          <span>problems</span>
+          <span>—</span>
+          <span>always</span>
+          <span>curious,</span>
+          <span>always</span>
+
+          <!-- Exploring: hover triggert de “emoji pop” -->
+          <span class="exploring">
+            exploring
+            <span class="balls" aria-hidden="true">
+              <span class="ball">🌍</span>
+              <span class="ball">🌎</span>
+              <span class="ball">🌏</span>
+            </span>
+          </span>
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================
+         SECTION: BOOKS / HOBBIES
+         - overlappende covers + hover lift
+         - op mobiel: horizontaal scrollen
+    ========================== -->
+    <section class="books" aria-label="Books">
+      <h2 class="sr-only">Books</h2>
+
+      <ul class="books__row" aria-label="Book covers">
+
+        <li class="book">
+          <img src="Images/caraval.jpg" alt="Caraval cover" />
+          <div class="book__summary">
+            <h4>Caraval</h4>
+            <p>
+              Een magisch verhaal vol illusies, mysteries en een gevaarlijk spel
+              waarin niets is wat het lijkt.
+            </p>
+          </div>
+        </li>
+
+        <li class="book">
+          <img src="Images/fate of the sun king.jpg" alt="Fate of the Sun King cover" />
+          <div class="book__summary">
+            <h4>Fate of the Sun King</h4>
+            <p>
+              Een fantasyverhaal over macht, lotsbestemming en een koninkrijk
+              dat op instorten staat.
+            </p>
+          </div>
+        </li>
+
+        <li class="book">
+          <img src="Images/fourth wing.jpg" alt="Fourth Wing cover" />
+          <div class="book__summary">
+            <h4>Fourth Wing</h4>
+            <p>
+              Een intense academische fantasy met draken, competitie en
+              overleven in een meedogenloze wereld.
+            </p>
+          </div>
+        </li>
+
+        <li class="book">
+          <img src="Images/house of many ways.jpg" alt="House of Many Ways cover" />
+          <div class="book__summary">
+            <h4>House of Many Ways</h4>
+            <p>
+              Een warm en speels fantasyverhaal waarin een magisch huis
+              vol verrassingen centraal staat.
+            </p>
+          </div>
+        </li>
+
+        <li class="book">
+          <img src="Images/howls moving castle.jpg" alt="Howl's Moving Castle cover" />
+          <div class="book__summary">
+            <h4>Howl’s Moving Castle</h4>
+            <p>
+              Een klassieker over magie, liefde en zelfacceptatie met een
+              eigenzinnige tovenaar.
+            </p>
+          </div>
+        </li>
+
+        <li class="book">
+          <img src="Images/kiki's_delevery.jpg" alt="Kiki's Delivery Service cover" />
+          <div class="book__summary">
+            <h4>Kiki’s Delivery Service</h4>
+            <p>
+              Een lief verhaal over zelfstandig worden, onzekerheid en
+              het vinden van je eigen plek.
+            </p>
+          </div>
+        </li>
+
+        <li class="book">
+          <img src="Images/the art of not giving a fuck.avif" alt="Art of Not Giving a F*ck cover" />
+          <div class="book__summary">
+            <h4>The Art of Not Giving a F*ck</h4>
+            <p>
+              Een nuchtere kijk op geluk, grenzen stellen en focussen op
+              wat echt belangrijk is.
+            </p>
+          </div>
+        </li>
+
+        <li class="book">
+          <img src="Images/the aurorking .jpg" alt="Auror King cover" />
+          <div class="book__summary">
+            <h4>The Auror King</h4>
+            <p>
+              Een romantische fantasy met politieke intriges, magie en
+              complexe relaties.
+            </p>
+          </div>
+        </li>
+
+        <li class="book">
+          <img src="Images/the trail of the sun queen.jpg" alt="Trail of the Sun Queen cover" />
+          <div class="book__summary">
+            <h4>The Trial of the Sun Queen</h4>
+            <p>
+              Een dodelijke competitie waarin deelnemers strijden om macht,
+              status en overleving.
+            </p>
+          </div>
+        </li>
+
+        <li class="book">
+          <img src="Images/therose_Bargain.jpg" alt="The Rose Bargain cover" />
+          <div class="book__summary">
+            <h4>The Rose Bargain</h4>
+            <p>
+              Donkere magie en verboden deals in een wereld waar elke wens
+              een prijs heeft.
+            </p>
+          </div>
+        </li>
+
+        <li class="book">
+          <img src="Images/ultraprocessed .jpg" alt="Ultra-Processed People cover" />
+          <div class="book__summary">
+            <h4>Ultra-Processed People</h4>
+            <p>
+              Een informatief boek over voeding, industrie en hoe bewerkt
+              eten ons dagelijks beïnvloedt.
+            </p>
+          </div>
+        </li>
+
       </ul>
     </section>
-    
 
-     <!-- one-page/sectie 3 questions -->
-    <section aria-labelledby="quiz-title" class="quiz">
-      <h2 id="quiz-title">2 true's and a lie</h2>
-      <p>Kies welke uitspraak niet waar is:</p>
 
-      <form class="quiz__form" data-correct="b">
-        <fieldset>
-          <legend class="sr-only">Kies één optie</legend>
+    <!-- =========================
+         SECTION: QUIZ
+         - radio inputs + feedback (aria-live)
+         - reset button zet alles terug
+    ========================== -->
+    <section class="quiz">
+      <div class="quiz__layout">
+
+        <!-- Linker kant: intro -->
+        <div class="quiz__intro">
+          <h2>Frontend Quiz</h2>
+          <p>
+            Test je kennis over frontend development.
+            Kies het antwoord dat volgens jou klopt.
+          </p>
+        </div>
+
+        <!-- Rechter kant: vraag + antwoorden -->
+        <form class="quiz__content" id="quizForm">
+          <h3>Wat is de belangrijkste rol van CSS?</h3>
 
           <label class="quiz__option">
-            <input type="radio" name="answer" value="a" />
-            Ik heb 3 slangen 🐍
+            <input type="radio" name="question-1" data-correct="false">
+            <span>De structuur van de website bepalen</span>
           </label>
 
           <label class="quiz__option">
-            <input type="radio" name="answer" value="b" />
-            Mijn familie komt uit italië 🇮🇹
+            <input type="radio" name="question-1" data-correct="true">
+            <span>Styling en layout van de website</span>
           </label>
 
           <label class="quiz__option">
-            <input type="radio" name="answer" value="c" />
-            ik ben dol op ananas op pizza. 🍕
+            <input type="radio" name="question-1" data-correct="false">
+            <span>Data ophalen van een server</span>
           </label>
-        </fieldset>
 
-        <p class="quiz__feedback" role="status" aria-live="polite"></p>
-        <button type="button" class="quiz__reset">Opnieuw</button>
-      </form>
+          <label class="quiz__option">
+            <input type="radio" name="question-1" data-correct="false">
+            <span>Gebruikersinput valideren</span>
+          </label>
+
+          <!-- feedback tekst -->
+          <p class="quiz__feedback" id="quizFeedback" aria-live="polite"></p>
+        </form>
+
+      </div>
     </section>
 
-    <section class="goals" id="goals" aria-label="Leerdoelen">
+
+    <!-- =========================
+         SECTION: GOALS (draggable cards)
+         - cards zijn <article> want losse “content blocks”
+         - data-drag = hook voor JS
+    ========================== -->
+    <section class="goals" aria-label="Leerdoelen">
       <h2>Leerdoelen</h2>
-    
-      <div class="goals__grid" id="goalsStage">
+
+      <div class="goals__stage" id="goalsStage" aria-label="Draggable goals">
         <article class="goal" data-drag tabindex="0">
           <h3>Interactie & beleving</h3>
           <p>Micro-interacties en animatie gebruiken om een site meer gevoel te geven.</p>
           <ul class="goal__tags" aria-label="Keywords">
-            <li>hover</li><li>motion</li><li>micro-animations</li><li>ervaring</li>
+            <li>hover</li>
+            <li>motion</li>
+            <li>micro-animations</li>
+            <li>ervaring</li>
           </ul>
           <p class="goal__cmd">Verbeelden & conceptualiseren · Uitwerken & prototypen</p>
         </article>
-    
+
         <article class="goal" data-drag tabindex="0">
           <h3>Technisch sterker</h3>
           <p>CSS & JavaScript verdiepen en complexere interacties bouwen.</p>
           <ul class="goal__tags" aria-label="Keywords">
-            <li>CSS</li><li>JS</li><li>structuur</li><li>debuggen</li>
+            <li>CSS</li>
+            <li>JS</li>
+            <li>structuur</li>
+            <li>debuggen</li>
           </ul>
           <p class="goal__cmd">Uitwerken & prototypen · Georganiseerd & ondernemend ontwerpen</p>
         </article>
-    
+
         <article class="goal" data-drag tabindex="0">
           <h3>Bewust ontwerpen</h3>
           <p>Kritischer kiezen wat ik maak, voor wie, en waarom het werkt.</p>
           <ul class="goal__tags" aria-label="Keywords">
-            <li>gebruikers</li><li>keuzes</li><li>context</li><li>reflectie</li>
+            <li>gebruikers</li>
+            <li>keuzes</li>
+            <li>context</li>
+            <li>reflectie</li>
           </ul>
           <p class="goal__cmd">Oriënteren & begrijpen · Evalueren</p>
         </article>
       </div>
     </section>
 
-
+    <!-- =========================
+         IDLE POPUP (dialog)
+         - <dialog> is semantisch voor modals
+         - JS opent na X seconden geen activiteit
+    ========================== -->
+    <dialog id="idlePopup" class="idle-popup" aria-label="Idle popup">
+      <div class="idle-modal">
+        <button class="idle-close" data-close type="button" aria-label="Close popup">✕</button>
+        <img class="idle-gif" src="Images/the-the-office.gif" alt="Fun idle animation" />
+      </div>
+    </dialog>
   </main>
 </body>
-
 
 </html>
