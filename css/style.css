@@ -1,0 +1,795 @@
+/* =========================
+   DESIGN TOKENS (palettes)
+   - deze kleuren gebruik je nergens direct
+   - componenten gebruiken alleen rollen: --bg, --surface, etc.
+========================= */
+:root {
+  --font-heading: "Archivo Black", system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Light palette */
+  --light-1: #e4f2cf;
+  --light-2: #ffaab8;
+  --light-3: #ffd8df;
+  --light-4: #6b7445;
+
+  /* Dark palette */
+  --dark-1: #628141;
+  --dark-2: #1b211a;
+  --dark-3: #ebd5ab;
+  --dark-4: #8bae66;
+
+  --h1-size: clamp(2.2rem, 6vw, 5rem);
+  --p-size: clamp(1rem, 2vw, 1.6rem);
+
+  --radius: 16px;
+  --shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================
+   THEME ROLLEN (default = dark)
+   - ALLE componenten gebruiken deze rollen
+========================= */
+:root {
+  --bg: var(--dark-1);
+  --surface: var(--dark-2);
+  --text: var(--dark-3);
+  --accent: var(--dark-4);
+  --muted: color-mix(in srgb, var(--text) 70%, transparent);
+}
+
+/* Auto light mode als iemands OS op light staat */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: var(--light-1);
+    --surface: var(--light-3);
+    --text: var(--light-4);
+    --accent: var(--light-2);
+    --muted: color-mix(in srgb, var(--text) 70%, transparent);
+  }
+}
+
+/* =========================
+   BASIS / RESET
+========================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: var(--h1-size); }
+p  { font-size: var(--p-size); color: var(--muted); }
+
+a, button { cursor: pointer; color: inherit; }
+
+.sr-only{
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================
+   HEADER / TOPBAR
+========================= */
+.topbar{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.weather {
+  width: min(530px, 92vw);
+  padding: 1rem;
+}
+
+.weather button { margin-top: .75rem; }
+
+.clock{
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.1em;
+  opacity: .9;
+  font-size: 1.6rem;
+  padding: 1rem;
+}
+
+.quote {
+  max-width: 420px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  padding: 1rem;
+}
+
+.quote cite {
+  display: block;
+  margin-top: 0.25rem;
+  font-style: normal;
+  opacity: 0.7;
+}
+
+
+/* =========================
+   button
+========================= */
+
+
+button {
+  max-width: 420px;
+  font-size: 0.95rem;
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  color: var(--dark-1);
+  background-color: var(--dark-2);
+}
+
+button:hover {
+  background-color: var(--dark-3);
+}
+
+
+
+
+
+/* =========================
+   MAIN (layout + intro fade)
+========================= */
+main {
+  background: var(--surface);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: introFade 0.8s ease-out both;
+}
+
+@keyframes introFade {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   HOVER TEXT (micro interactie)
+========================= */
+.hover-text span {
+  display: inline-block;
+  transition: color 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+
+.hover-text span:hover {
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   EXPLORING + BALLS (emoji pop)
+========================= */
+.exploring { position: relative; display: inline-block; cursor: pointer; }
+
+.balls {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.ball {
+  position: absolute;
+  font-size: 40px;
+  opacity: 0;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+  transform: translate(0, 0) scale(0.3);
+}
+
+.exploring:hover .ball { animation: pop 0.75s cubic-bezier(.2, .8, .2, 1) forwards; }
+.ball:nth-child(1) { animation-delay: 0s; }
+.ball:nth-child(2) { animation-delay: 0.08s; }
+.ball:nth-child(3) { animation-delay: 0.16s; }
+
+@keyframes pop {
+  0%   { opacity: 0; transform: translate(0, 0) scale(0.2); }
+  15%  { opacity: 1; transform: translate(0, 0) scale(1.4); }
+  60%  { opacity: 1; transform: translate(calc(var(--dx) * 0.6), calc(var(--dy) * 0.6)) scale(1); }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.6); }
+}
+
+/* =========================
+   ASIDE PLAYER (details/summary)
+========================= */
+.player {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 9998;
+}
+
+.player > details {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.player summary {
+  list-style: none;
+  user-select: none;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--surface);
+  color: var(--accent);
+  box-shadow: var(--shadow);
+
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  line-height: 1;
+
+  transition: transform 0.28s cubic-bezier(.2, .8, .2, 1);
+}
+
+.player details[open] summary { transform: rotate(180deg); }
+.player summary::-webkit-details-marker { display: none; }
+
+.player iframe {
+  width: 300px;
+  height: 152px;
+  border-radius: 12px;
+  border: 0;
+  box-shadow: var(--shadow);
+
+  transform: translateX(320px);
+  opacity: 0;
+  pointer-events: none;
+
+  transition: transform 0.45s ease-in-out, opacity 0.25s ease-in-out;
+}
+
+.player details[open] iframe {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* =========================
+   SECTION: INTRO
+========================= */
+.intro{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1100px;
+  width: 100%;
+  padding: 4rem 2rem 8rem;
+  align-items: center;
+}
+
+.intro__text h1{
+  color: var(--text);
+  transition: color 0.35s ease-in-out;
+}
+.intro__text h1:hover { color: var(--accent); }
+
+/* Polaroid stack */
+.polaroids {
+  position: relative;
+  width: min(320px, 100%);
+  aspect-ratio: 3 / 4;
+  margin: 0;
+  list-style: none;
+}
+
+.polaroids li {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  transform-origin: center;
+  z-index: var(--z, 1);
+  transform: var(--t, rotate(0deg) translateY(0px));
+  transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+
+.polaroids li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  /* “polaroid” rand */
+  background: color-mix(in srgb, var(--surface) 10%, white);
+  padding: 14px 14px 34px;
+  border-radius: 3px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.polaroids li:nth-child(1)  { --z: 11; --t: rotate( 0deg) translateY( 0px); }
+.polaroids li:nth-child(2)  { --z: 10; --t: rotate(-2deg) translateY( 6px); }
+.polaroids li:nth-child(3)  { --z:  9; --t: rotate( 2deg) translateY(12px); }
+.polaroids li:nth-child(4)  { --z:  8; --t: rotate(-3deg) translateY(18px); }
+.polaroids li:nth-child(5)  { --z:  7; --t: rotate( 3deg) translateY(24px); }
+.polaroids li:nth-child(6)  { --z:  6; --t: rotate(-1deg) translateY(30px); }
+.polaroids li:nth-child(7)  { --z:  5; --t: rotate( 1deg) translateY(36px); }
+.polaroids li:nth-child(8)  { --z:  4; --t: rotate(-4deg) translateY(42px); }
+.polaroids li:nth-child(9)  { --z:  3; --t: rotate( 4deg) translateY(48px); }
+.polaroids li:nth-child(10) { --z:  2; --t: rotate(-2deg) translateY(54px); }
+.polaroids li:nth-child(11) { --z:  1; --t: rotate( 2deg) translateY(60px); }
+
+/* =========================
+   SECTION: BOOKS (overlap row)
+========================= */
+.books{
+  width: 100%;
+  padding: 3rem 2rem 8rem;
+  position: relative !important; 
+  isolation: isolate !important;
+}
+
+.books::before {
+  content: "";
+  position: absolute !important;
+  inset: -70% -50%;
+  z-index: -2;
+  background: radial-gradient(circle at center, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%);
+  filter: blur(180px);
+}
+
+.books__row {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.books__row li {
+  position: relative ;
+  margin-left: -90px;
+  transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+  will-change: transform;
+}
+
+.books__row li:nth-child(1)  { z-index: 1; }
+.books__row li:nth-child(2)  { z-index: 2; }
+.books__row li:nth-child(3)  { z-index: 3; }
+.books__row li:nth-child(4)  { z-index: 4; }
+.books__row li:nth-child(5)  { z-index: 5; }
+.books__row li:nth-child(6)  { z-index: 6; }
+.books__row li:nth-child(7)  { z-index: 7; }
+.books__row li:nth-child(8)  { z-index: 8; }
+.books__row li:nth-child(9)  { z-index: 9; }
+.books__row li:nth-child(10) { z-index: 10; }
+.books__row li:nth-child(11) { z-index: 11; }
+
+.books__row img {
+  width: 160px;
+  height: 190px;
+  display: block;
+}
+
+.books__row li:hover {
+  transform: translateY(-120px) scale(1.05) translateZ(80px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  z-index: 50;
+}
+.book {
+  position: relative;
+}
+
+.book__summary {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+
+  width: 220px;
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  background: color-mix(in srgb, var(--surface) 96%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.book:hover .book__summary {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+
+/* =========================
+   QUIZ SECTION
+========================= */
+
+.quiz {
+  width: min(900px, 92vw);
+  margin: 0 auto;
+  padding: 4rem 0 6rem;
+}
+
+/* Layout: links tekst, rechts quiz */
+.quiz__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Linkerkant */
+.quiz__intro h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.quiz__intro p {
+  max-width: 38ch;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--text) 75%, transparent);
+}
+
+/* Rechterkant */
+.quiz__content h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+/* =========================
+   QUIZ OPTIONS (jouw code)
+========================= */
+
+.quiz__option {
+  position: relative;
+  display: block;
+  padding: 16px 18px;
+  margin: 10px 0;
+  border-radius: 14px;
+
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--text) 22%, transparent);
+
+  cursor: pointer;
+  transition:
+    background-color 0.35s ease-in-out,
+    border-color 0.35s ease-in-out,
+    transform 0.25s ease-in-out;
+}
+
+.quiz__option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.quiz__option span {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.35s ease-in-out;
+}
+
+.quiz__option:hover {
+  background: color-mix(in srgb, var(--surface) 82%, var(--accent));
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.quiz__option:hover span {
+  color: var(--accent);
+}
+
+.quiz__option:has(input:checked) {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.quiz__option:has(input:checked) span {
+  color: var(--surface);
+}
+
+.quiz__feedback {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  min-height: 1.25em;
+}
+
+/* extra states op de opties */
+.quiz__option.is-correct {
+  background: color-mix(in srgb, var(--accent) 65%, var(--surface));
+  border-color: var(--accent);
+}
+
+.quiz__option.is-wrong {
+  background: color-mix(in srgb, #ff4d4d 25%, var(--surface));
+  border-color: color-mix(in srgb, #ff4d4d 65%, transparent);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .quiz__layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .quiz {
+    padding: 3rem 0 4rem;
+  }
+}
+
+
+/* =========================
+   GOALS (cards + draggable stage)
+========================= */
+.goals {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.goals h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+/* stage = “speelveld” */
+.goals__stage {
+  position: relative;
+  min-height: 520px;
+}
+
+/* basis kaart */
+.goal {
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 16%, transparent);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.25rem 1.1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  cursor: grab;
+}
+
+.goal[data-drag]{
+  position: absolute;
+  width: min(320px, 92vw);
+  touch-action: none;
+  user-select: none;
+}
+
+.goal.is-dragging {
+  cursor: grabbing;
+  transform: translate3d(var(--x, 0px), var(--y, 0px), 0) scale(1.02);
+}
+
+/* tags hidden → zichtbaar op hover */
+.goal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.goal__tags li {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  color: var(--text);
+}
+
+.goal:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  background: color-mix(in srgb, var(--surface) 82%, var(--accent));
+}
+
+.goal:hover .goal__tags {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* startposities */
+.goals__stage .goal:nth-child(1) { left: 0; top: 0; }
+.goals__stage .goal:nth-child(2) { left: 360px; top: 60px; }
+.goals__stage .goal:nth-child(3) { left: 140px; top: 240px; }
+
+/* =========================
+   IDLE POPUP (dialog)
+========================= */
+.idle-popup{
+  position: fixed !important;
+  inset: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  display: none;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.idle-popup[open]{ display: flex !important; }
+
+.idle-popup::backdrop{
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(2px);
+}
+
+/* geen hardcoded “zwart”: gewoon surface + transparantie */
+.idle-modal{
+  position: relative;
+  width: min(520px, 92vw);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+}
+
+.idle-gif{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.idle-close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 0;
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  color: var(--text);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+}
+
+.idle-close:hover{
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+}
+
+/* =========================
+   CURSOR (3 bolletjes) → gebruikt tokens
+========================= */
+.cursor {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+/* glow base = accent gemixt met text, zodat het in light/dark klopt */
+.c1 {
+  width: 18px; height: 18px;
+  background: color-mix(in srgb, var(--accent) 55%, var(--text));
+  box-shadow: 0 0 25px color-mix(in srgb, var(--accent) 55%, transparent);
+  animation: breathe 3s ease-in-out infinite;
+}
+
+.c2 {
+  width: 12px; height: 12px;
+  background: color-mix(in srgb, var(--accent) 35%, var(--text));
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 45%, transparent);
+  animation: breathe 3.8s ease-in-out infinite;
+}
+
+.c3 {
+  width: 7px; height: 7px;
+  background: color-mix(in srgb, var(--accent) 22%, var(--text));
+  box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 35%, transparent);
+  animation: breathe 4.6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50%      { transform: translate(-50%, -50%) scale(1.15); }
+}
+
+/* =========================================================
+   ✅ RESPONSIVE (iPhone / mobiel)
+   - per “blok” wat er moet gebeuren
+========================================================= */
+@media (max-width: 600px) {
+  /* header widgets onder elkaar */
+  .topbar { padding: 0.75rem; }
+  .clock { width: 100%; }
+  .quote { width: 100%; }
+
+  /* intro van 2 kolommen → 1 kolom */
+  .intro{
+    grid-template-columns: 1fr;
+    padding: 3rem 1rem 6rem;
+    gap: 2rem;
+  }
+
+  .polaroids{
+    width: min(280px, 100%);
+    margin: 0 auto;
+  }
+
+  /* books: horizontaal scrollen i.p.v. mega overlap */
+  .books{ padding: 2rem 1rem 6rem; }
+  .books__row{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.75rem;
+    padding: 0.5rem 0.25rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .books__row li{
+    margin-left: 0;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+
+  .books__row img{ width: 120px; height: 150px; }
+
+  /* hover is niet “echt” op iPhone, dus minder extreme lift */
+  .books__row li:hover { transform: translateY(-24px) scale(1.03); }
+
+  /* spotify player kleiner */
+  .player{ right: 0.75rem; bottom: 0.75rem; }
+  .player iframe{
+    width: min(86vw, 320px);
+    height: 160px;
+    transform: translateX(110%);
+  }
+
+  /* cursor uit op touch */
+  .cursor { display: none; }
+
+  /* goals: kaarten onder elkaar starten */
+  .goals{ padding: 4rem 1rem; }
+  .goals__stage{ min-height: 720px; }
+  .goals__stage .goal:nth-child(1) { left: 0; top: 0; }
+  .goals__stage .goal:nth-child(2) { left: 0; top: 240px; }
+  .goals__stage .goal:nth-child(3) { left: 0; top: 480px; }
+}
+
+/* voorkomt iOS zoom bij inputs */
+@media (max-width: 600px) {
+  input, select, textarea { font-size: 16px; }
+}
