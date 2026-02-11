@@ -423,6 +423,7 @@ async function enableRandomMovie() {
             ${randomPerson.fav_movie}
           </p>
         `;
+        resultBox.classList.add("active");
       });
     }
 
@@ -467,3 +468,15 @@ async function fetchJson(url, payload = {}) {
       .catch((error) => error)
   }
 
+  const summaryBox = document.querySelector(".books__summary");
+  const books = document.querySelectorAll(".book");
+  
+  books.forEach(book => {
+    const title = book.querySelector(".book__summary h4")?.textContent;
+    const text  = book.querySelector(".book__summary p")?.textContent;
+  
+    book.addEventListener("mouseenter", () => {
+      summaryBox.innerHTML = `<h4>${title}</h4><p>${text}</p>`;
+    });
+  });
+  
