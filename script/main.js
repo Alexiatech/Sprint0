@@ -101,8 +101,8 @@
     }
 
     feedback.textContent = isCorrect
-      ? "✅ Goed! CSS gaat vooral over styling en layout."
-      : "❌ Niet helemaal. CSS gaat vooral over styling en layout.";
+      ? "✅ Goed!"
+      : "❌ Nee helaas fout";
   });
 })();
 

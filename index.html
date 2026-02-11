@@ -85,28 +85,28 @@
       </ul>
 
       <div class="intro__text">
-        <h1>Hi, I'm <span class="name">Kees</span></h1>
+        <h1>Hoi, ik ben <span class="name">Kees</span></h1>
 
         <!-- Hover text: elk woord is een <span> voor micro-interactie -->
         <p class="hover-text">
-          <span>A</span>
+          <span>Een</span>
           <span>CMD</span>
           <span>student</span>
-          <span>who</span>
-          <span>enjoys</span>
-          <span>designing,</span>
-          <span>building,</span>
-          <span>and</span>
-          <span>solving</span>
-          <span>problems</span>
-          <span>—</span>
-          <span>always</span>
-          <span>curious,</span>
-          <span>always</span>
+          <span>die</span>
+          <span>houdt</span>
+          <span>van</span>
+          <span>ontwerpen,</span>
+          <span>bouwen</span>
+          <span>en</span>
+          <span>problemen</span>
+          <span>oplossen,</span>
+          <span>altijd</span>
+          <span>nieuwsgierig,</span>
+          <span>altijd</span>
 
           <!-- Exploring: hover triggert de “emoji pop” -->
           <span class="exploring">
-            exploring
+            aan het ontdekken
             <span class="balls" aria-hidden="true">
               <span class="ball">🌍</span>
               <span class="ball">🌎</span>
@@ -123,7 +123,8 @@
          - op mobiel: horizontaal scrollen
     ========================== -->
     <section class="books" aria-label="Books">
-      <p>Ik hou van lezen! dit zijn de boeken die ik de afglopen tijd heb gelezen. neem gerust een kijkje</p>
+      <h2>Boeken geven me rust én nieuwe energie. Ik lees graag om te leren, te ontspannen en mijn blik te verbreden.
+        Dit zijn de boeken die ik recent heb gelezen.</h2>
 
       <div class="books__summary" aria-live="polite">
         <h4>Kies een boek</h4>
@@ -262,7 +263,7 @@
     ========================== -->
 
     <section class="favorite-movies">
-      <h2>Favorite films of my classmates 🎬</h2>
+      <h4>Films die klas genoten hebben uitgekozen om te kijken 🎬</h4>
       <p>Klik op de knop om een willekeurige favoriete film te zien.</p>
 
       <button id="random-movie-btn">Show random movie</button>
@@ -282,35 +283,35 @@
 
         <!-- Linker kant: intro -->
         <div class="quiz__intro">
-          <h2>Frontend Quiz</h2>
+          <h2>Leer mij kennen</h2>
           <p>
-            Test je kennis over frontend development.
-            Kies het antwoord dat volgens jou klopt.
+            Wat zou jij over mij raden als je me nog niet kent?
+            Kies het antwoord dat volgens jou het beste bij mij past.
           </p>
         </div>
 
         <!-- Rechter kant: vraag + antwoorden -->
         <form class="quiz__content" id="quizForm">
-          <h3>Wat is de belangrijkste rol van CSS?</h3>
+          <h3>Wat is een random feitje over mij?</h3>
 
           <label class="quiz__option">
             <input type="radio" name="question-1" data-correct="false">
-            <span>De structuur van de website bepalen</span>
+            <span>Ik ben een goede schaatser</span>
           </label>
 
           <label class="quiz__option">
             <input type="radio" name="question-1" data-correct="true">
-            <span>Styling en layout van de website</span>
+            <span>Ik kan paardrijden</span>
           </label>
 
           <label class="quiz__option">
             <input type="radio" name="question-1" data-correct="false">
-            <span>Data ophalen van een server</span>
+            <span>Ik kan goed snowboarden</span>
           </label>
 
           <label class="quiz__option">
             <input type="radio" name="question-1" data-correct="false">
-            <span>Gebruikersinput valideren</span>
+            <span>Ik rijd motor</span>
           </label>
 
           <!-- feedback tekst -->
@@ -332,7 +333,12 @@
       <div class="goals__stage" id="goalsStage" aria-label="Draggable goals">
         <article class="goal" data-drag tabindex="0">
           <h3>Interactie & beleving</h3>
-          <p>Micro-interacties en animatie gebruiken om een site meer gevoel te geven.</p>
+          <p>
+            In deze website heb ik al veel micro-interacties en animaties toegevoegd om meer gevoel en dynamiek te
+            creëren.
+            Ik wil leren hoe ik dit technisch sterker kan opbouwen met CSS en JavaScript, zodat ik bewuster kan kiezen
+            wanneer en waarom ik beweging toevoeg aan een interface.
+          </p>
           <ul class="goal__tags" aria-label="Keywords">
             <li>hover</li>
             <li>motion</li>
@@ -342,9 +348,14 @@
           <p class="goal__cmd">Verbeelden & conceptualiseren · Uitwerken & prototypen</p>
         </article>
 
+
         <article class="goal" data-drag tabindex="0">
           <h3>Technisch sterker</h3>
-          <p>CSS & JavaScript verdiepen en complexere interacties bouwen.</p>
+          <p>
+            Ik wil mijn kennis van CSS en JavaScript verdiepen en complexere interacties leren bouwen.
+            Niet alleen dat iets werkt, maar ook begrijpen waarom het werkt. Door te experimenteren,
+            prototypes te maken en fouten te durven maken, wil ik technisch zelfverzekerder worden.
+          </p>
           <ul class="goal__tags" aria-label="Keywords">
             <li>CSS</li>
             <li>JS</li>
@@ -356,7 +367,11 @@
 
         <article class="goal" data-drag tabindex="0">
           <h3>Bewust ontwerpen</h3>
-          <p>Kritischer kiezen wat ik maak, voor wie, en waarom het werkt.</p>
+          <p>
+            Ik wil kritischer leren kijken naar wat ik maak, voor wie ik het maak en waarom het werkt.
+            Ook wanneer ik een ontwerp uit Figma namaak, wil ik begrijpen hoe ik dit technisch correct kan opbouwen.
+            Mijn doel is om niet alleen iets moois te maken, maar iets dat logisch, doordacht en passend is.
+          </p>
           <ul class="goal__tags" aria-label="Keywords">
             <li>gebruikers</li>
             <li>keuzes</li>
@@ -365,20 +380,18 @@
           </ul>
           <p class="goal__cmd">Oriënteren & begrijpen · Evalueren</p>
         </article>
-      </div>
-    </section>
 
-    <!-- =========================
+        <!-- =========================
          IDLE POPUP (dialog)
          - <dialog> is semantisch voor modals
          - JS opent na X seconden geen activiteit
     ========================== -->
-    <dialog id="idlePopup" class="idle-popup" aria-label="Idle popup">
-      <div class="idle-modal">
-        <button class="idle-close" data-close type="button" aria-label="Close popup">✕</button>
-        <img class="idle-gif" src="Images/the-the-office.gif" alt="Fun idle animation" />
-      </div>
-    </dialog>
+        <dialog id="idlePopup" class="idle-popup" aria-label="Idle popup">
+          <div class="idle-modal">
+            <button class="idle-close" data-close type="button" aria-label="Close popup">✕</button>
+            <img class="idle-gif" src="Images/the-the-office.gif" alt="Fun idle animation" />
+          </div>
+        </dialog>
   </main>
 </body>
 
