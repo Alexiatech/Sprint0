@@ -379,33 +379,92 @@ document.addEventListener("DOMContentLoaded", () => {
    - haalt lijst quotes op, kiest random quote
    - fallback quote als API faalt
 ========================================================= */
-(() => {
-  const textEl = document.getElementById("quoteText");
-  const authorEl = document.getElementById("quoteAuthor");
-  if (!textEl || !authorEl) return;
 
-  let quotes = null;
 
-  const pick = () => quotes[Math.floor(Math.random() * quotes.length)];
-  const show = (q) => {
-    textEl.textContent = `“${q.text}”`;
-    authorEl.textContent = q.author ? `— ${q.author}` : "— Unknown";
-  };
+enableRandomMovie();
 
-  const load = async () => {
-    try {
-      if (!quotes) {
-        const res = await fetch("https://type.fit/api/quotes");
-        if (!res.ok) throw new Error("Quotes fetch failed");
-        quotes = await res.json();
-      }
-      show(pick());
-    } catch (e) {
-      console.warn(e);
-      show({ text: "Stay hungry, stay foolish.", author: "Steve Jobs" });
+async function enableRandomMovie() {
+
+  // Basis URL van de API
+  const baseUrl = 'https://fdnd.directus.app';
+  
+  // Endpoint waar alleen personen worden opgehaald
+  // waarvan fav_movie niet leeg is
+  const endpoint = '/items/person?filter[fav_movie][_nnull]=true';
+
+  const URL = baseUrl + endpoint;
+
+  try {
+
+    // Data ophalen van de API
+    const response = await fetch(URL);
+
+    // JSON omzetten naar bruikbare data
+    const movieData = await response.json();
+
+    // Alle studenten opslaan in een array
+    const allStudents = movieData.data;
+
+    const button = document.querySelector('#random-movie-btn');
+    const resultBox = document.querySelector('#random-result');
+
+    if (button) {
+      button.addEventListener('click', function () {
+
+        // Willekeurige index kiezen
+        const randomIndex = Math.floor(Math.random() * allStudents.length);
+
+        // Willekeurige student selecteren
+        const randomPerson = allStudents[randomIndex];
+
+        // Resultaat tonen in de HTML
+        resultBox.innerHTML = `
+          <p><strong>${randomPerson.name}</strong></p>
+          <p class="custom-data">
+            ${randomPerson.fav_movie}
+          </p>
+        `;
+      });
     }
-  };
 
-  load();
-  setInterval(load, 6000);
-})();
+  } catch (error) {
+    console.error("Er ging iets mis bij het ophalen van de films:", error);
+  }
+}
+
+
+
+const apiURL = 'https://fdnd.directus.app/items/person/330'
+const parentElement = document.querySelector('.name')
+
+parentElement.classList.add('loading')
+
+function parsCard(userData,targetElement) {
+    data.custom.JSON.parse(data.custom)
+    console.log(JSON.parse(data.custom))
+    targetElement.innerHTML = 
+    `
+
+    <h2>${userData.name}</h2>
+    <p>${userData.bio}</p>
+    <table> 
+    `
+}
+
+fetchJson(apiURL).then(function(response){
+    parentElement.innerHTML = `
+    <article>
+        <span>${response.data.name}<span>
+    </article>
+    `
+    parentElement.classList.remove('Kees')
+})
+
+
+
+async function fetchJson(url, payload = {}) {
+    return await fetch(url, payload)
+      .then((response) => response.json())
+      .catch((error) => error)
+  }
+
