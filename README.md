@@ -156,9 +156,9 @@ Dus ik heb geprobeerd bewuster om te gaan met wanneer ik JavaScript gebruik.
 
 Hieronder een paar foto’s die ik tijdens de presentatie heb gemaakt:
 
-![Slide 1](./images/weekly-nerd/slide1.jpg)
-![Slide 2](./images/weekly-nerd/slide2.jpg)
-![Slide 3](./images/weekly-nerd/slide3.jpg)
+![Slide 1](./images/slide_1.jpg)
+![Slide 1](./images/slide_2.jpg)
+![Slide 1](./images/slide_3.jpg)
 
 Deze slides laten goed zien dat veel oplossingen simpeler zijn dan we denken.
 
