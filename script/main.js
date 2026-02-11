@@ -385,7 +385,6 @@ enableRandomMovie();
 
 async function enableRandomMovie() {
 
-  // Basis URL van de API
   const baseUrl = 'https://fdnd.directus.app';
   
   // Endpoint waar alleen personen worden opgehaald

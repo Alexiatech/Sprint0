@@ -55,7 +55,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: var(--bg);
+  background: var(--dark-2);
   color: var(--text);
   font-family: var(--font-body);
 }
@@ -80,56 +80,47 @@ a, button { cursor: pointer; color: inherit; }
   border: 0;
 }
 
+* section{
+  margin-bottom: 3rem !important;
+  
+}
+
 /* =========================
    HEADER / TOPBAR
 ========================= */
 .topbar{
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   gap: 1rem;
   padding: 1rem;
   flex-wrap: wrap;
 }
 
 .weather {
+  display: flex;
   width: min(530px, 92vw);
   padding: 1rem;
+  text-align: center;
 }
 
-.weather button { margin-top: .75rem; }
 
 .clock{
-  font-variant-numeric: tabular-nums;
   letter-spacing: 0.1em;
-  opacity: .9;
   font-size: 1.6rem;
   padding: 1rem;
 }
 
 .favorite-movies {
-  padding: 4rem 2rem;
+  font-size: 1em;
+  padding: 1rem 2rem;
   text-align: center;
   background-color: var(--bg-dark);
   color: var(--text-dark);
 }
 
-.favorite-movies button {
-  margin-top: 1.5rem;
-  padding: 0.8rem 1.4rem;
-  background-color: var(--accent-dark);
-  color: var(--text-light);
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-.favorite-movies button:hover {
-  transform: scale(1.05);
-}
 
 #random-result {
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-size: 1.2rem;
 }
 
@@ -148,6 +139,8 @@ a, button { cursor: pointer; color: inherit; }
 
 
 
+
+
 /* =========================
    button
 ========================= */
@@ -158,6 +151,7 @@ button {
   font-size: 0.95rem;
   border-radius: var(--radius);
   padding: 0.5rem;
+  margin: 1em;
   color: var(--dark-1);
   background-color: var(--dark-2);
 }
@@ -255,20 +249,12 @@ main {
 
   width: 56px;
   height: 56px;
-  border-radius: 999px;
 
   display: grid;
   place-items: center;
 
-  background: var(--surface);
-  color: var(--accent);
-  box-shadow: var(--shadow);
-
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 2rem;
-  line-height: 1;
-
-  transition: transform 0.28s cubic-bezier(.2, .8, .2, 1);
 }
 
 .player details[open] summary { transform: rotate(180deg); }
@@ -364,12 +350,20 @@ main {
   width: 100%;
   padding: 3rem 2rem 8rem;
   position: relative !important; 
-  isolation: isolate !important;
 }
+
+.books h2 p{
+  display: flex;
+  text-align: center;
+  position: absolute;
+  justify-content: center;
+}
+
+
 
 .books::before {
   content: "";
-  position: absolute !important;
+  position: absolute;
   inset: -70% -50%;
   z-index: -2;
   background: radial-gradient(circle at center, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%);
@@ -389,17 +383,6 @@ main {
   will-change: transform;
 }
 
-.books__row li:nth-child(1)  { z-index: 1; }
-.books__row li:nth-child(2)  { z-index: 2; }
-.books__row li:nth-child(3)  { z-index: 3; }
-.books__row li:nth-child(4)  { z-index: 4; }
-.books__row li:nth-child(5)  { z-index: 5; }
-.books__row li:nth-child(6)  { z-index: 6; }
-.books__row li:nth-child(7)  { z-index: 7; }
-.books__row li:nth-child(8)  { z-index: 8; }
-.books__row li:nth-child(9)  { z-index: 9; }
-.books__row li:nth-child(10) { z-index: 10; }
-.books__row li:nth-child(11) { z-index: 11; }
 
 .books__row img {
   width: 160px;
@@ -426,9 +409,7 @@ main {
   padding: 14px 16px;
   border-radius: 14px;
 
-  background: color-mix(in srgb, var(--surface) 96%, transparent);
-  border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  
 
   opacity: 0;
   pointer-events: none;

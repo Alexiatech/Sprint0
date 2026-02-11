@@ -52,24 +52,16 @@
   ========================== -->
   <header class="topbar">
     <section class="weather" aria-label="Weather">
-      <h2>Weather near me</h2>
+      <h2>Hoe is het weer in de buurt? </h2>
       <p id="wxStatus">Klik om het weer op te halen.</p>
-      <button id="wxBtn" type="button">Get my weather</button>
+      <button id="wxBtn" type="button">krijg het weer</button>
     </section>
 
     <section class="timebox" aria-label="Time">
-      <h2 class="sr-only">Current time</h2>
+      <h2 class="sr-only">De tijd</h2>
       <time id="clock" class="clock" aria-label="Current time" datetime=""></time>
     </section>
 
-    <section class="favorite-movies">
-      <h2>Favorite films of my classmates 🎬</h2>
-      <p>Klik op de knop om een willekeurige favoriete film te zien.</p>
-    
-      <button id="random-movie-btn">Show random movie</button>
-    
-      <div id="random-result"></div>
-    </section>
   </header>
 
   <main>
@@ -132,7 +124,9 @@
          - op mobiel: horizontaal scrollen
     ========================== -->
     <section class="books" aria-label="Books">
-      <h2 class="sr-only">Books</h2>
+      <h2>Boeken</h2>
+      <p>Ik hou van lezen! dit zijn de boeken die ik de afglopen tijd heb gelezen. neem gerust een kijkje</p>
+      
 
       <ul class="books__row" aria-label="Book covers">
 
@@ -259,6 +253,21 @@
 
       </ul>
     </section>
+
+    <!-- =========================
+         SECTION: classmates 
+        movies API
+    ========================== -->
+
+    <section class="favorite-movies">
+      <h2>Favorite films of my classmates 🎬</h2>
+      <p>Klik op de knop om een willekeurige favoriete film te zien.</p>
+    
+      <button id="random-movie-btn">Show random movie</button>
+    
+      <div id="random-result"></div>
+    </section>
+    
 
 
     <!-- =========================
