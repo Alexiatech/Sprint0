@@ -272,85 +272,98 @@ Dit project voelt niet alleen als “een website maken”,
 maar echt als leren denken als developer.
 
 
-# Weekly Nerd – Kilian Valkhof (Polyplane)
+# Header – Tijdwidget (API + fallback)
 
-## Wie was er?
-
-Tijdens deze Weekly Nerd kwam Kilian Valkhof spreken, de maker van Polyplane.
-
-Polyplane is een tool waarmee je je website tegelijkertijd kunt bekijken op meerdere schermformaten, zoals desktop, tablet en mobiel. Het is bedoeld om snel te zien hoe responsive je website echt is en of je media queries goed werken.
-
-Als front-end student vond ik dit meteen interessant, omdat responsive design iets is waar ik zelf ook veel mee bezig ben.
+In de header heb ik een tijdwidget geplaatst die synchroniseert met een externe API. Oorspronkelijk wilde ik meerdere widgets (weer, quotes), maar door tijdsdruk heb ik ervoor gekozen om één feature goed en stabiel uit te werken.
 
 ---
 
-## Wat is mij bijgebleven?
+## HTML
 
-Wat mij vooral is bijgebleven, is dat veel dingen die wij snel met JavaScript proberen op te lossen, eigenlijk al mogelijk zijn met HTML en CSS.
+Ik gebruik een semantische `<header>` met een `<time>` element voor de klok.
 
-Hij liet bijvoorbeeld het `<dialog>` element zien.  
-In plaats van zelf een hele pop-up te bouwen met divs en veel JavaScript, kun je gebruikmaken van een ingebouwd HTML-element dat hier speciaal voor bedoeld is.
+~~~html
+<header class="topbar">
+  <section class="timebox" aria-label="Time">
+    <h2 class="sr-only">De tijd</h2>
+    <time id="clock" class="clock"></time>
+  </section>
+</header>
+~~~
 
-Dat was voor mij echt een inzicht-moment.
-
-Ik merk namelijk dat ik vaak denk:
-"Dit moet met JavaScript."
-
-Maar soms kan het veel simpeler.
-
----
-
-## Wat heb ik hiervan geleerd?
-
-Ik heb geleerd dat:
-
-- Het web al veel ingebouwde functionaliteit heeft.
-- Minder JavaScript je code overzichtelijker kan maken.
-- Simpelere oplossingen vaak stabieler zijn.
-- Je eerst moet kijken wat HTML en CSS kunnen voordat je naar JavaScript grijpt.
-
-Tijdens het werken aan mijn eigen OnePager merkte ik ook dat JavaScript snel complex wordt.  
-Bijvoorbeeld bij API’s of foutmeldingen — je bent veel tijd kwijt aan debuggen.
-
-Deze Weekly Nerd voelde daarom als een reminder:
-Het hoeft niet altijd ingewikkeld.
+**Waarom `<time>`?**  
+Dit element is bedoeld voor tijd/datum en is semantisch correct.
 
 ---
 
-## Hoe heb ik dit toegepast?
+## CSS
 
-Ik heb in mijn eigen OnePager het `<dialog>` element gebruikt voor een pop-up.
+De header is opgebouwd met flexbox:
 
-De structuur is HTML.  
-De styling is CSS.  
-Alleen de timing (via een timer) heb ik met JavaScript gedaan, zodat de pop-up automatisch verschijnt na een paar seconden.
+~~~css
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
 
-Dus ik heb geprobeerd bewuster om te gaan met wanneer ik JavaScript gebruik.
+.clock {
+  font-size: var(--h1-size);
+  letter-spacing: 0.1em;
+}
+~~~
+
+Ik werk met CSS custom properties (design tokens) zodat kleuren automatisch wisselen tussen dark/light mode via `prefers-color-scheme`.
+
+**Bron:**  
+MDN – CSS Custom Properties  
+https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties  
 
 ---
 
-## Slides van de presentatie
+## JavaScript
 
-Hieronder een paar foto’s die ik tijdens de presentatie heb gemaakt:
+De klok synchroniseert met WorldTimeAPI en loopt daarna lokaal door. Elke minuut wordt opnieuw gesynchroniseerd.
 
-![Slide 1](./images/slide_1.jpg)
-![Slide 1](./images/slide_2.jpg)
-![Slide 1](./images/slide_3.jpg)
+Belangrijk idee:
 
-Deze slides laten goed zien dat veel oplossingen simpeler zijn dan we denken.
+- API geeft `unixtime`
+- Ik gebruik `performance.now()` om tijdsverschil bij te houden
+- Er is een fallback naar lokale tijd als de API faalt
+
+~~~js
+const sync = async () => {
+  try {
+    const res = await fetch(
+      "https://worldtimeapi.org/api/timezone/Europe/Amsterdam"
+    );
+    const data = await res.json();
+    baseUnixMs = data.unixtime * 1000;
+    basePerf = performance.now();
+  } catch {
+    baseUnixMs = null; // fallback naar lokale tijd
+  }
+};
+~~~
+
+**Bronnen:**
+
+MDN – Fetch API  
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API  
+
+MDN – performance.now()  
+https://developer.mozilla.org/en-US/docs/Web/API/Performance/now  
 
 ---
 
-## Persoonlijke reflectie
+## Proces & reflectie
 
-Deze Weekly Nerd heeft mij vooral laten nadenken over hoe ik code schrijf.
+Ik liep tegen twee dingen aan:
 
-Ik ben iemand die graag experimenteert en nieuwe dingen probeert (zoals API’s en interactieve elementen).  
-Maar soms is het goed om even terug te gaan naar de basis.
+- Te veel features tegelijk willen bouwen (weer + tijd + quotes).
+- Async functies die errors gaven door timing.
 
-Niet alles hoeft met extra JavaScript opgelost te worden.  
-Soms is minder juist sterker.
+Daarom heb ik bewust mijn scope verkleind en eerst één stabiele feature afgerond. Dit heeft me geleerd om eerder prioriteiten te stellen en mijn planning strakker te maken.
 
-Dat ga ik zeker meenemen in mijn volgende projecten.
 
 
