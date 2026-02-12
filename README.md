@@ -182,7 +182,7 @@ Gecombineerd met opacity voor een zachtere overgang.
 
 ---
 
-## Quiz – 2 truths and a lie
+## Quiz 
 
 - `#quizForm`
 - `data-correct`
@@ -212,12 +212,57 @@ Hier leerde ik beter omgaan met async data.
 
 # Weekly Nerd – Kilian Valkhof
 
-Tijdens deze Weekly Nerd leerde ik dat veel dingen die wij snel met JavaScript oplossen, al mogelijk zijn met HTML en CSS.
+Yes 🙌 hieronder staat jouw tekst netjes in een Markdown codeblok, schoon geformatteerd en iets vloeiender geformuleerd (maar nog steeds student-proof).
 
-Bijvoorbeeld het `<dialog>` element voor modals.
+Je kunt dit direct plakken in je README.
 
-Dit inzicht heb ik meegenomen in mijn eigen project.
+# Weekly Nerd – Kilian Valkhof (Polyplane)
 
+## Wie was er?
+
+Tijdens deze Weekly Nerd kwam Kilian Valkhof spreken, de maker van Polyplane.
+
+Polyplane is een tool waarmee je je website tegelijkertijd kunt bekijken op meerdere schermformaten (desktop, tablet, mobiel).  
+Dit is vooral handig om responsive gedrag en media queries te testen.
+
+---
+
+## Wat is mij bijgebleven?
+
+Wat mij vooral bijbleef, is dat veel dingen die wij snel met JavaScript oplossen, eigenlijk al mogelijk zijn met HTML en CSS.
+
+Hij liet bijvoorbeeld het `<dialog>` element zien als eenvoudige oplossing voor een pop-up.  
+Dat was voor mij een belangrijk inzicht.
+
+Ik merk dat ik snel denk:  
+“Dit moet met JavaScript.”
+
+Maar soms kan het simpeler.
+
+---
+
+## Wat heb ik hiervan geleerd?
+
+- Het web heeft al veel ingebouwde functionaliteit.
+- Minder JavaScript kan je code overzichtelijker maken.
+- Simpele oplossingen zijn vaak stabieler.
+- Eerst kijken wat HTML en CSS kunnen voordat je naar JS grijpt.
+
+---
+
+## Hoe heb ik dit toegepast?
+
+In mijn eigen OnePager heb ik het `<dialog>` element gebruikt voor een pop-up.
+
+De verdeling daarbij was:
+
+- HTML → structuur  
+- CSS → styling  
+- JavaScript → timing (automatisch openen via een timer)
+
+Hierdoor bleef de basis semantisch correct en gebruikte ik JavaScript alleen waar het echt nodig was.
+
+Ik heb geprobeerd bewuster na te denken over wanneer JavaScript écht een meerwaarde heeft, en wanneer HTM
 ---
 
 # Algemene Reflectie
