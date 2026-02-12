@@ -235,7 +235,6 @@ Voor een week werk ben ik trots op het resultaat.
 
 ---
 
-# Bronnen
 
 # Bronnen
 
@@ -244,8 +243,6 @@ Voor een week werk ben ik trots op het resultaat.
 MDN – Fetch API  
 https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API  
 
-MDN – Using Fetch  
-https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch  
 
 MDN – Async / Await  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function  
@@ -255,9 +252,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 
 MDN – Pointer Events  
 https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events  
-
-JavaScript.info – Events & Event Loop uitleg  
-https://javascript.info/events  
 
 JavaScript.info – DOM manipulation  
 https://javascript.info/dom-nodes  
