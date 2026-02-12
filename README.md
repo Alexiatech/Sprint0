@@ -1,407 +1,256 @@
-# Sprint0
+# Sprint 0 – OnePager
 
 ## Inhoudsopgave
 
 - [OnePager](#onepager)
-  - [Code](#code)
-    - [Header](#header)
-    - [JavaScript](#javascript)
-- [Dag 1 – Basis & Concept](#dag-1--basis--concept)
-- [Dag 2 – Interactie & Micro-animations](#dag-2--interactie--micro-animations)
-- [Dag 3 – Boeken & Quiz](#dag-3--boeken--quiz)
-- [Dag 4 – Leerdoelen & Draggable Cards](#dag-4--leerdoelen--draggable-cards)
-- [Dag 5 – Header & API’s](#dag-5--header--apis)
-- [Dag 6 – Fine-tuning & Betere Keuzes](#dag-6--fine-tuning--betere-keuzes)
-- [Weekly Nerd – Kilian Valkhof (Polyplane)](#weekly-nerd--kilian-valkhof-polyplane)
-- [Algemene Reflectie Tot Nu Toe](#algemene-reflectie-tot-nu-toe)
-- [Boeken-sectie (Hover + dynamische samenvatting)](#boeken-sectie-hover--dynamische-samenvatting)
-- [Quiz-sectie (Radio inputs + feedback)](#quiz-sectie-radio-inputs--feedback)
-- [API – Favoriete films van klasgenoten](#api--favoriete-films-van-klasgenoten)
-- [Custom Cursor (interactie-detail)](#custom-cursor-interactie-detail)
-- [Gebruik van hulpmiddelen](#gebruik-van-hulpmiddelen)
-- [Belangrijk inzicht](#belangrijk-inzicht)
+- [Proces – Dag 1 t/m 6](#proces--dag-1-tm-6)
+- [JavaScript & Interactie](#javascript--interactie)
+- [Weekly Nerd – Kilian Valkhof](#weekly-nerd--kilian-valkhof)
+- [Algemene Reflectie](#algemene-reflectie)
+- [Bronnen](#bronnen)
 
-# OnePager 
+---
 
-Dit project is mijn persoonlijke OnePager.  
+# OnePager
+
+Dit project is mijn persoonlijke one-page website.  
 De focus ligt op interactie, micro-animations en experimenteren met wat het web technisch kan.
 
-Ik wilde niet alleen een mooie pagina maken, maar vooral begrijpen wat ik bouw en waarom ik bepaalde keuzes maak.
+Ik wilde niet alleen iets maken dat er goed uitziet, maar vooral begrijpen wat ik bouw en waarom het werkt.
+
+Dit project is gemaakt in ongeveer één week tijd. Daardoor moest ik keuzes maken, prioriteiten stellen en soms features schrappen om het stabiel te houden.
 
 ---
 
-# Dag 1 – Basis & Concept
+# Proces – Dag 1 t/m 6
 
-## Waar gaat deze site over?
+## Dag 1 – Structuur & Basis
 
-Deze website is mijn persoonlijke onepager.  
-De focus ligt op **interactie, micro-animations en een rustige dark-mode uitstraling**.
+Ik begon met het opzetten van een semantische HTML-structuur.  
+Hierbij heb ik bewust gebruik gemaakt van:
 
-Ik experimenteer met subtiele details zoals:
-- Een custom cursor
-- Hover-effecten
-- Bewegende elementen
-- Kleine interactieve momenten
+- `<header>`
+- `<main>`
+- `<section>`
+- `<article>`
+- `<form>`
 
-Ik wilde dat de site niet alleen visueel klopt, maar ook “aanvoelt”.
+Daarnaast heb ik gewerkt met design tokens in `:root` voor kleurgebruik (dark/light mode via `prefers-color-scheme`).
 
----
-
-## Wat heb ik gedaan?
-
-- De basisstructuur opgezet met semantische HTML
-- Een dark-mode design gemaakt met vaste design tokens (kleuren in `:root`)
-- Basis layout en sections opgebouwd
-- Eerste hover-interacties toegevoegd
-
-Ik heb bewust gekozen om structuur eerst goed neer te zetten voordat ik veel styling toevoegde.
+**Wat ik leerde:**  
+Een sterke HTML-basis maakt CSS en JavaScript logischer en overzichtelijker.
 
 ---
 
-## Wat heb ik geleerd?
+## Dag 2 – Interactie & Micro-animations
 
-Dat een sterke HTML-structuur echt de basis is.  
-Als je die goed opzet, wordt CSS later veel logischer.
-
----
-
-# Dag 2 – Interactie & Micro-animations
-
-## Focus
-
-Meer beweging en karakter toevoegen aan mijn pagina.
-
----
-
-## Wat heb ik gedaan?
-
-- Custom cursor gemaakt met meerdere lagen
-- Hover-effecten verfijnd
-- Kleine animaties toegevoegd met easing
-- Overgangen vloeiender gemaakt
-
-Ik wilde dat mijn site niet “statisch” aanvoelt.
-
----
-
-## Wat heb ik geleerd?
-
-Dat micro-animations veel invloed hebben op de beleving.  
-Maar ook dat je moet oppassen dat het niet te druk wordt.
-
-Hier begon ik meer te begrijpen hoe belangrijk balans is.
-
----
-
-# Dag 3 – Boeken & Quiz
-
-## Focus
-
-Interactie verbeteren in mijn boeken-sectie en experimenteren met een quiz.
-
----
-
-## Wat heb ik gedaan?
-
-- Hover-effect toegevoegd aan mijn boeken
-- Een summary laten verschijnen boven het boek bij hover
-- Geëxperimenteerd met positionering en z-index
-- Een quiz toegevoegd (duurde veel langer dan verwacht)
-
-Voor de quiz heb ik online inspiratie opgezocht en stukjes code bestudeerd.  
-Daarna heb ik die herschreven zodat het past binnen mijn eigen structuur.
-
-Ik heb dus niet zomaar gekopieerd, maar geprobeerd echt te begrijpen wat er gebeurde.
-
----
-
-## Wat heb ik geleerd?
-
-- Interactie lijkt simpel, maar is vaak technisch precies werk.
-- JavaScript wordt snel complex.
-- “Even iets toevoegen” bestaat eigenlijk niet.
-
-Ik had momenten van frustratie, maar ook flow wanneer iets eindelijk werkte.
-
----
-
-# Dag 4 – Leerdoelen & Draggable Cards
-
-## Focus
-
-Mijn leerdoelen visueel en interactief maken.
-
----
-
-## Inspiratie
-
-Ik heb inspiratie gehaald van een andere front-end student.  
-Zij had drie blokken die je kon verplaatsen.
-
-Dat idee heb ik vertaald naar mijn eigen stijl.
-
----
-
-## Wat heb ik gedaan?
-
-- Drie leerdoelen-blokken gemaakt
-- Interactief gemaakt (verplaatsbaar)
-- Grenzen ingesteld zodat ze binnen de container blijven
-- Geëxperimenteerd met positionering
-
-Hier begon ik beter te begrijpen hoe elementen zich gedragen binnen een parent container.
-
----
-
-## Wat heb ik geleerd?
-
-- Positionering is relatief.
-- UX is belangrijk: wat mag de gebruiker wel en niet doen?
-- Interactie moet gecontroleerd blijven.
-
-Als ik het opnieuw zou doen, zou ik eerst schetsen hoe de interactie moet werken voordat ik begin met coderen.
-
----
-
-# Dag 5 – Header & API’s
-
-## Focus
-
-Mijn header dynamischer maken met API’s.
-
----
-
-## Wat heb ik geprobeerd?
-
-- Weather API
-- Random Quote API
-- Een klok (zonder seconden)
-
-Ik merkte dat API’s implementeren veel meer tijd kost dan ik verwachtte.
-
-Je moet rekening houden met:
-- Fetch
-- Async/await
-- JSON
-- Error handling
-- Structuur van data
-
----
-
-## Wat ging mis?
-
-De Quote API gaf foutmeldingen.  
-De Weather API werkte deels, maar niet zoals ik het visueel wilde.
-
-Uiteindelijk heb ik ervoor gekozen om deze onderdelen te verwijderen, omdat ze niet stabiel genoeg waren binnen de tijd die ik had.
-
-Dat vond ik lastig, maar het was een bewuste keuze.
-
----
-
-# Dag 6 – Fine-tuning & Betere Keuzes
-
-Vandaag heb ik mijn pagina gefinetuned.
+Op deze dag wilde ik meer beleving toevoegen.
 
 Ik heb:
+- Hover-effecten verfijnd
+- Kleine animaties toegevoegd
+- Transitions verbeterd
+- Geëxperimenteerd met easing
 
-- De niet-stabiele API’s verwijderd
-- Mijn site meer naar het Nederlands gebracht
-- Een sectie toegevoegd met favoriete films van klasgenoten (via school API)
-- Mijn naam in de header dynamisch gemaakt via een persoonlijke API
-
-In plaats van statische tekst fetch ik nu mijn naam uit een externe bron.
-
-Dat vond ik persoonlijker en sterker dan random quotes.
+Hier merkte ik dat balans belangrijk is. Te veel animatie maakt een pagina onrustig.
 
 ---
 
-## Belangrijk inzicht
+## Dag 3 – Boeken & Quiz
 
+Ik heb een boeken-sectie gebouwd met hover-interactie.  
+Wanneer je over een cover hovert, verschijnt de samenvatting in een vaste `.books__summary`.
+
+Daarnaast heb ik een quiz gemaakt met radio inputs en directe feedback via JavaScript.
+
+**Technisch gewerkt met:**
+- `querySelector`
+- `addEventListener`
+- `dataset`
+- `classList`
+- `aria-live`
+
+Hier merkte ik dat JavaScript snel complexer wordt dan je verwacht.
+
+---
+
+## Dag 4 – Draggable Goals
+
+Mijn leerdoelen wilde ik visueel en interactief maken.
+
+Ik heb:
+- `.goal[data-drag]` elementen gemaakt
+- Pointer events gebruikt (werkt voor muis én touch)
+- `getBoundingClientRect()` gebruikt voor positie-berekening
+- Een clamp-functie gemaakt zodat kaarten binnen de container blijven
+
+Hier begon ik beter te begrijpen hoe positionering relatief werkt binnen een parent container.
+
+---
+
+## Dag 5 – API’s & Header
+
+Ik heb geëxperimenteerd met meerdere API’s:
+
+- Weather API  
+- Quote API  
+- WorldTime API  
+
+Niet alles werkte stabiel binnen de tijd die ik had. Daarom heb ik bewust gekozen om sommige onderdelen te verwijderen.
+
+Wel heb ik:
+- Een klok gebouwd met fetch + fallback
+- Een random movie API toegevoegd (school API)
+- Mijn naam dynamisch opgehaald via een endpoint
+
+Hier leerde ik werken met:
+- `fetch`
+- `async/await`
+- JSON parsing
+- Error handling (`try/catch`)
+
+---
+
+## Dag 6 – Fine-tuning
+
+De laatste dag stond in het teken van opschonen.
+
+Ik heb:
+- Niet-stabiele features verwijderd
+- Code opgeschoond
+- Interactie consistenter gemaakt
+- Teksten herschreven
+
+Belangrijk inzicht:  
 Niet alles wat technisch kan, moet je houden.
 
-Soms is minder beter.  
-En een goed werkend simpel idee is sterker dan een half werkende complexe feature.
+---
+
+# JavaScript & Interactie
+
+In mijn one-page project gebruik ik JavaScript om interactieve onderdelen aan te sturen.  
+Elke feature is apart opgebouwd (IIFE of `DOMContentLoaded`) zodat code niet globaal lekt.
 
 ---
 
-# Weekly Nerd – Kilian Valkhof (Polyplane)
+## Cursor trail (3 lagen)
 
-## Wie was er?
+Drie bolletjes volgen de muis met verschillende snelheden.
 
-Tijdens deze Weekly Nerd kwam Kilian Valkhof spreken, de maker van Polyplane.
+Technisch:
+- `.cursor` selecteren
+- `mousemove` listener
+- Positie opslaan
+- `requestAnimationFrame()` gebruiken
+- Interpolatie toepassen via snelheidsarray
 
-Polyplane is een tool waarmee je je website tegelijkertijd kunt bekijken op meerdere schermformaten (desktop, tablet, mobiel).  
-Dit is vooral handig om responsive gedrag en media queries te testen.
+```js
+pos.x += (mouseX - pos.x) * speeds[i];
+pos.y += (mouseY - pos.y) * speeds[i];
+```
 
----
+Met `matchMedia("(hover: none)")` zet ik dit uit op touch devices.
 
-## Wat is mij bijgebleven?
-
-Wat mij vooral bijbleef, is dat veel dingen die wij snel met JavaScript oplossen, eigenlijk al mogelijk zijn met HTML en CSS.
-
-Hij liet bijvoorbeeld het `<dialog>` element zien als eenvoudige oplossing voor een pop-up.
-
-Dat was voor mij een belangrijk inzicht.
-
-Ik merk dat ik snel denk:
-“Dit moet met JavaScript.”
-
-Maar soms kan het simpeler.
+**Transparantie:**  
+De basisstructuur van deze cursor kwam van ChatGPT.  
+Ik heb deze gebruikt omdat ik in korte tijd wilde begrijpen hoe een trailing-animatie werkt. Daarna heb ik de code aangepast en begrijp ik nu hoe interpolatie en `requestAnimationFrame()` samenwerken.
 
 ---
 
-## Wat heb ik hiervan geleerd?
+## Draggable goals
 
-- Het web heeft al veel ingebouwde functionaliteit.
-- Minder JavaScript kan je code overzichtelijker maken.
-- Simpele oplossingen zijn vaak stabieler.
-- Eerst kijken wat HTML en CSS kunnen.
+Interactieve kaarten binnen `#goalsStage`.
 
----
+Gebruikt:
+- `pointerdown`, `pointermove`, `pointerup`
+- `getBoundingClientRect()`
+- Clamp-logica
 
-## Hoe heb ik dit toegepast?
-
-In mijn eigen OnePager heb ik het `<dialog>` element gebruikt voor een pop-up.
-
-- HTML → structuur
-- CSS → styling
-- JavaScript → timing (automatisch openen via timer)
-
-Ik heb geprobeerd bewuster na te denken over wanneer ik JavaScript écht nodig heb.
+Dit zorgt ervoor dat kaarten binnen hun container blijven.
 
 ---
 
-# Algemene Reflectie Tot Nu Toe
+## Polaroid stack loop
+
+Elke paar seconden wordt de bovenste foto achteraan geplaatst.
+
+```js
+stack.appendChild(first);
+```
+
+Gecombineerd met opacity voor een zachtere overgang.
+
+---
+
+## Quiz – 2 truths and a lie
+
+- `#quizForm`
+- `data-correct`
+- `change` event
+- `aria-live` feedback
+
+```js
+const isCorrect = input.dataset.correct === "true";
+```
+
+Dit zorgt voor directe en toegankelijke feedback.
+
+---
+
+## Random movie API
+
+Fetch naar school endpoint.  
+Random index genereren en DOM updaten.
+
+```js
+const randomIndex = Math.floor(Math.random() * allStudents.length);
+```
+
+Hier leerde ik beter omgaan met async data.
+
+---
+
+# Weekly Nerd – Kilian Valkhof
+
+Tijdens deze Weekly Nerd leerde ik dat veel dingen die wij snel met JavaScript oplossen, al mogelijk zijn met HTML en CSS.
+
+Bijvoorbeeld het `<dialog>` element voor modals.
+
+Dit inzicht heb ik meegenomen in mijn eigen project.
+
+---
+
+# Algemene Reflectie
 
 Wat ik merk in dit project:
 
 - Ik experimenteer graag.
-- Ik probeer veel nieuwe dingen.
 - Ik onderschat soms hoeveel tijd technische onderdelen kosten.
-- Debuggen hoort er gewoon bij.
+- Debuggen hoort erbij.
+- Ik leer steeds meer denken in structuur.
 
-Maar ik merk ook dat ik steeds beter begrijp hoe het web werkt.
+Ik ben van “iets werkend krijgen” gegaan naar “begrijpen waarom het werkt”.
 
-Niet alleen hoe iets eruitziet, maar:
-- Hoe elementen zich gedragen
-- Hoe data wordt opgehaald
-- Hoe interactie technisch wordt aangestuurd
-
-Dit project voelt niet alleen als “een website maken”,  
-maar echt als leren denken als developer.
-
-## Main – Belangrijkste onderdelen
-
-In de main van mijn OnePager heb ik meerdere interactieve secties gebouwd.  
-Hieronder licht ik kort de belangrijkste onderdelen toe.
+Voor een week werk ben ik trots op het resultaat.
 
 ---
 
-### 📚 Boeken-sectie (Hover + dynamische samenvatting)
+# Bronnen
 
-In deze sectie toon ik boeken die ik recent heb gelezen.  
-Wanneer je over een cover hovert, verschijnt de bijbehorende samenvatting in een vaste summary-box.
+MDN – Fetch API  
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API  
 
-**Wat heb ik gedaan:**
-- Covers overlappend gepositioneerd met flexbox
-- Hover-effect toegevoegd met `transform` en `z-index`
-- Met JavaScript de juiste titel en tekst in een vaste `.books__summary` gezet
+MDN – requestAnimationFrame  
+https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame  
 
-Hier liep ik tegen layout-problemen aan (margin, positionering en “layout shifts”).  
-Uiteindelijk heb ik gekozen voor één vaste summary-box in plaats van tekst boven elk boek.
+MDN – pointer-events  
+https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events  
 
-**Bronnen:**
-- MDN – querySelector & DOM manipulatie  
-  https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector  
-- MDN – transform property  
-  https://developer.mozilla.org/en-US/docs/Web/CSS/transform  
+MDN – getBoundingClientRect  
+https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect  
 
----
+MDN – addEventListener  
+https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener  
 
-### 🎮 Quiz-sectie (Radio inputs + feedback)
-
-Ik heb een kleine quiz gemaakt om de pagina persoonlijker te maken.
-
-**Wat heb ik gedaan:**
-- Semantische `<form>` gebruikt
-- Radio buttons gekoppeld via `name`
-- `data-correct` attribuut gebruikt om juiste antwoord te herkennen
-- Feedback getoond via een `change` event
-
-Hier merkte ik dat JavaScript snel complex wordt als je states moet resetten.
-
-**Bronnen:**
-- MDN – Form element  
-  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form  
-- MDN – addEventListener  
-  https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener  
-
----
-
-### 🎬 API – Favoriete films van klasgenoten
-
-In plaats van een random quote API heb ik gekozen voor iets persoonlijkers:  
-de favoriete films van mijn klasgenoten (via de school API).
-
-**Wat heb ik gedaan:**
-- Data ophalen via `fetch`
-- JSON verwerken
-- Random index genereren
-- Resultaat tonen in de DOM
-
-Hier leerde ik beter omgaan met:
-- Async/await
-- JSON-structuur
-- Error handling
-
-**Bron:**
-- MDN – Fetch API  
-  https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API  
-
----
-
-### Custom Cursor (interactie-detail)
-
-Ik heb een custom cursor gemaakt met drie lagen die de muis volgen.  
-Dit is een decoratief element dat zorgt voor extra beleving.
-
-Ik heb hier deels hulp bij gekregen van ChatGPT, vooral bij het verbeteren van de animatie met `requestAnimationFrame()`.
-
-**Bronnen:**
-- MDN – requestAnimationFrame  
-  https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame  
-- MDN – pointer-events  
-  https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events  
-
----
-
-## Gebruik van hulpmiddelen
-
-In dit project heb ik:
-
-- Ongeveer 70–80% zelf gebouwd en uitgezocht
-- Ongeveer 20–30% ondersteuning gekregen van ChatGPT
-- MDN en officiële documentatie gebruikt als referentie
-
-Wanneer ik ChatGPT gebruikte, probeerde ik altijd:
-- De code te begrijpen
-- Deze aan te passen aan mijn eigen structuur
-- Niet blind te kopiëren
-
----
-
-## Belangrijk inzicht
-
-Ik heb geleerd dat:
-
-- Interactie technisch vaak complexer is dan het lijkt.
-- Scope beperken belangrijk is.
-- Stabiliteit belangrijker is dan “zoveel mogelijk features”.
-- Het web al veel native oplossingen biedt.
-
-Deze OnePager voelt voor mij als een leerproces waarin ik ben gegroeid van “iets werkend krijgen” naar “begrijpen waarom het werkt”.
-
-
-
-
+MDN – aria-live  
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions  
