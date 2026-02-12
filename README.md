@@ -212,11 +212,6 @@ Hier leerde ik beter omgaan met async data.
 
 # Weekly Nerd – Kilian Valkhof
 
-Yes 🙌 hieronder staat jouw tekst netjes in een Markdown codeblok, schoon geformatteerd en iets vloeiender geformuleerd (maar nog steeds student-proof).
-
-Je kunt dit direct plakken in je README.
-
-# Weekly Nerd – Kilian Valkhof (Polyplane)
 
 ## Wie was er?
 
