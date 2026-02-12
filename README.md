@@ -1,7 +1,21 @@
 # Sprint0
 
+## Inhoudsopgave
 
-# OnePager – Proces & Reflectie
+- [OnePager](#onepager)
+  - [Code](#code)
+    - [Header](#header)
+    - [JavaScript](#javascript)
+- [Dag 1 – Basis & Concept](#dag-1--basis--concept)
+- [Dag 2 – Interactie & Micro-animations](#dag-2--interactie--micro-animations)
+- [Dag 3 – Boeken & Quiz](#dag-3--boeken--quiz)
+- [Dag 4 – Leerdoelen & Draggable Cards](#dag-4--leerdoelen--draggable-cards)
+- [Dag 5 – Header & API’s](#dag-5--header--apis)
+- [Dag 6 – Fine-tuning & Betere Keuzes](#dag-6--fine-tuning--betere-keuzes)
+- [Weekly Nerd – Kilian Valkhof (Polyplane)](#weekly-nerd--kilian-valkhof-polyplane)
+- [Algemene Reflectie Tot Nu Toe](#algemene-reflectie-tot-nu-toe)
+
+# OnePager 
 
 Dit project is mijn persoonlijke OnePager.  
 De focus ligt op interactie, micro-animations en experimenteren met wat het web technisch kan.
