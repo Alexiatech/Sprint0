@@ -1,211 +1,217 @@
-# Sprint0
+# Sprint 0 – OnePager
 
+## Inhoudsopgave
 
-# OnePager – Proces & Reflectie
+- [OnePager](#onepager)
+- [Proces – Dag 1 t/m 6](#proces--dag-1-tm-6)
+- [JavaScript & Interactie](#javascript--interactie)
+- [Weekly Nerd – Kilian Valkhof](#weekly-nerd--kilian-valkhof)
+- [Algemene Reflectie](#algemene-reflectie)
+- [Bronnen](#bronnen)
 
-Dit project is mijn persoonlijke OnePager.  
+---
+
+# OnePager
+
+Dit project is mijn persoonlijke one-page website.  
 De focus ligt op interactie, micro-animations en experimenteren met wat het web technisch kan.
 
-Ik wilde niet alleen een mooie pagina maken, maar vooral begrijpen wat ik bouw en waarom ik bepaalde keuzes maak.
+Ik wilde niet alleen iets maken dat er goed uitziet, maar vooral begrijpen wat ik bouw en waarom het werkt.
+
+Dit project is gemaakt in ongeveer één week tijd. Daardoor moest ik keuzes maken, prioriteiten stellen en soms features schrappen om het stabiel te houden.
 
 ---
 
-# Dag 1 – Basis & Concept
+# Proces – Dag 1 t/m 6
 
-## Waar gaat deze site over?
+## Dag 1 – Structuur & Basis
 
-Deze website is mijn persoonlijke onepager.  
-De focus ligt op **interactie, micro-animations en een rustige dark-mode uitstraling**.
+Ik begon met het opzetten van een semantische HTML-structuur.  
+Hierbij heb ik bewust gebruik gemaakt van:
 
-Ik experimenteer met subtiele details zoals:
-- Een custom cursor
-- Hover-effecten
-- Bewegende elementen
-- Kleine interactieve momenten
+- `<header>`
+- `<main>`
+- `<section>`
+- `<article>`
+- `<form>`
 
-Ik wilde dat de site niet alleen visueel klopt, maar ook “aanvoelt”.
+Daarnaast heb ik gewerkt met design tokens in `:root` voor kleurgebruik (dark/light mode via `prefers-color-scheme`).
 
----
-
-## Wat heb ik gedaan?
-
-- De basisstructuur opgezet met semantische HTML
-- Een dark-mode design gemaakt met vaste design tokens (kleuren in `:root`)
-- Basis layout en sections opgebouwd
-- Eerste hover-interacties toegevoegd
-
-Ik heb bewust gekozen om structuur eerst goed neer te zetten voordat ik veel styling toevoegde.
+**Wat ik leerde:**  
+Een sterke HTML-basis maakt CSS en JavaScript logischer en overzichtelijker.
 
 ---
 
-## Wat heb ik geleerd?
+## Dag 2 – Interactie & Micro-animations
 
-Dat een sterke HTML-structuur echt de basis is.  
-Als je die goed opzet, wordt CSS later veel logischer.
-
----
-
-# Dag 2 – Interactie & Micro-animations
-
-## Focus
-
-Meer beweging en karakter toevoegen aan mijn pagina.
-
----
-
-## Wat heb ik gedaan?
-
-- Custom cursor gemaakt met meerdere lagen
-- Hover-effecten verfijnd
-- Kleine animaties toegevoegd met easing
-- Overgangen vloeiender gemaakt
-
-Ik wilde dat mijn site niet “statisch” aanvoelt.
-
----
-
-## Wat heb ik geleerd?
-
-Dat micro-animations veel invloed hebben op de beleving.  
-Maar ook dat je moet oppassen dat het niet te druk wordt.
-
-Hier begon ik meer te begrijpen hoe belangrijk balans is.
-
----
-
-# Dag 3 – Boeken & Quiz
-
-## Focus
-
-Interactie verbeteren in mijn boeken-sectie en experimenteren met een quiz.
-
----
-
-## Wat heb ik gedaan?
-
-- Hover-effect toegevoegd aan mijn boeken
-- Een summary laten verschijnen boven het boek bij hover
-- Geëxperimenteerd met positionering en z-index
-- Een quiz toegevoegd (duurde veel langer dan verwacht)
-
-Voor de quiz heb ik online inspiratie opgezocht en stukjes code bestudeerd.  
-Daarna heb ik die herschreven zodat het past binnen mijn eigen structuur.
-
-Ik heb dus niet zomaar gekopieerd, maar geprobeerd echt te begrijpen wat er gebeurde.
-
----
-
-## Wat heb ik geleerd?
-
-- Interactie lijkt simpel, maar is vaak technisch precies werk.
-- JavaScript wordt snel complex.
-- “Even iets toevoegen” bestaat eigenlijk niet.
-
-Ik had momenten van frustratie, maar ook flow wanneer iets eindelijk werkte.
-
----
-
-# Dag 4 – Leerdoelen & Draggable Cards
-
-## Focus
-
-Mijn leerdoelen visueel en interactief maken.
-
----
-
-## Inspiratie
-
-Ik heb inspiratie gehaald van een andere front-end student.  
-Zij had drie blokken die je kon verplaatsen.
-
-Dat idee heb ik vertaald naar mijn eigen stijl.
-
----
-
-## Wat heb ik gedaan?
-
-- Drie leerdoelen-blokken gemaakt
-- Interactief gemaakt (verplaatsbaar)
-- Grenzen ingesteld zodat ze binnen de container blijven
-- Geëxperimenteerd met positionering
-
-Hier begon ik beter te begrijpen hoe elementen zich gedragen binnen een parent container.
-
----
-
-## Wat heb ik geleerd?
-
-- Positionering is relatief.
-- UX is belangrijk: wat mag de gebruiker wel en niet doen?
-- Interactie moet gecontroleerd blijven.
-
-Als ik het opnieuw zou doen, zou ik eerst schetsen hoe de interactie moet werken voordat ik begin met coderen.
-
----
-
-# Dag 5 – Header & API’s
-
-## Focus
-
-Mijn header dynamischer maken met API’s.
-
----
-
-## Wat heb ik geprobeerd?
-
-- Weather API
-- Random Quote API
-- Een klok (zonder seconden)
-
-Ik merkte dat API’s implementeren veel meer tijd kost dan ik verwachtte.
-
-Je moet rekening houden met:
-- Fetch
-- Async/await
-- JSON
-- Error handling
-- Structuur van data
-
----
-
-## Wat ging mis?
-
-De Quote API gaf foutmeldingen.  
-De Weather API werkte deels, maar niet zoals ik het visueel wilde.
-
-Uiteindelijk heb ik ervoor gekozen om deze onderdelen te verwijderen, omdat ze niet stabiel genoeg waren binnen de tijd die ik had.
-
-Dat vond ik lastig, maar het was een bewuste keuze.
-
----
-
-# Dag 6 – Fine-tuning & Betere Keuzes
-
-Vandaag heb ik mijn pagina gefinetuned.
+Op deze dag wilde ik meer beleving toevoegen.
 
 Ik heb:
+- Hover-effecten verfijnd
+- Kleine animaties toegevoegd
+- Transitions verbeterd
+- Geëxperimenteerd met easing
 
-- De niet-stabiele API’s verwijderd
-- Mijn site meer naar het Nederlands gebracht
-- Een sectie toegevoegd met favoriete films van klasgenoten (via school API)
-- Mijn naam in de header dynamisch gemaakt via een persoonlijke API
-
-In plaats van statische tekst fetch ik nu mijn naam uit een externe bron.
-
-Dat vond ik persoonlijker en sterker dan random quotes.
+Hier merkte ik dat balans belangrijk is. Te veel animatie maakt een pagina onrustig.
 
 ---
 
-## Belangrijk inzicht
+## Dag 3 – Boeken & Quiz
 
+Ik heb een boeken-sectie gebouwd met hover-interactie.  
+Wanneer je over een cover hovert, verschijnt de samenvatting in een vaste `.books__summary`.
+
+Daarnaast heb ik een quiz gemaakt met radio inputs en directe feedback via JavaScript.
+
+**Technisch gewerkt met:**
+- `querySelector`
+- `addEventListener`
+- `dataset`
+- `classList`
+- `aria-live`
+
+Hier merkte ik dat JavaScript snel complexer wordt dan je verwacht.
+
+---
+
+## Dag 4 – Draggable Goals
+
+Mijn leerdoelen wilde ik visueel en interactief maken.
+
+Ik heb:
+- `.goal[data-drag]` elementen gemaakt
+- Pointer events gebruikt (werkt voor muis én touch)
+- `getBoundingClientRect()` gebruikt voor positie-berekening
+- Een clamp-functie gemaakt zodat kaarten binnen de container blijven
+
+Hier begon ik beter te begrijpen hoe positionering relatief werkt binnen een parent container.
+
+---
+
+## Dag 5 – API’s & Header
+
+Ik heb geëxperimenteerd met meerdere API’s:
+
+- Weather API  
+- Quote API  
+- WorldTime API  
+
+Niet alles werkte stabiel binnen de tijd die ik had. Daarom heb ik bewust gekozen om sommige onderdelen te verwijderen.
+
+Wel heb ik:
+- Een klok gebouwd met fetch + fallback
+- Een random movie API toegevoegd (school API)
+- Mijn naam dynamisch opgehaald via een endpoint
+
+Hier leerde ik werken met:
+- `fetch`
+- `async/await`
+- JSON parsing
+- Error handling (`try/catch`)
+
+---
+
+## Dag 6 – Fine-tuning
+
+De laatste dag stond in het teken van opschonen.
+
+Ik heb:
+- Niet-stabiele features verwijderd
+- Code opgeschoond
+- Interactie consistenter gemaakt
+- Teksten herschreven
+
+Belangrijk inzicht:  
 Niet alles wat technisch kan, moet je houden.
 
-Soms is minder beter.  
-En een goed werkend simpel idee is sterker dan een half werkende complexe feature.
+---
+
+# JavaScript & Interactie
+
+In mijn one-page project gebruik ik JavaScript om interactieve onderdelen aan te sturen.  
+Elke feature is apart opgebouwd (IIFE of `DOMContentLoaded`) zodat code niet globaal lekt.
 
 ---
 
-# Weekly Nerd – Kilian Valkhof (Polyplane)
+## Cursor trail (3 lagen)
+
+Drie bolletjes volgen de muis met verschillende snelheden.
+
+Technisch:
+- `.cursor` selecteren
+- `mousemove` listener
+- Positie opslaan
+- `requestAnimationFrame()` gebruiken
+- Interpolatie toepassen via snelheidsarray
+
+```js
+pos.x += (mouseX - pos.x) * speeds[i];
+pos.y += (mouseY - pos.y) * speeds[i];
+```
+
+Met `matchMedia("(hover: none)")` zet ik dit uit op touch devices.
+
+**Transparantie:**  
+De basisstructuur van deze cursor kwam van ChatGPT.  
+Ik heb deze gebruikt omdat ik in korte tijd wilde begrijpen hoe een trailing-animatie werkt. Daarna heb ik de code aangepast en begrijp ik nu hoe interpolatie en `requestAnimationFrame()` samenwerken.
+
+---
+
+## Draggable goals
+
+Interactieve kaarten binnen `#goalsStage`.
+
+Gebruikt:
+- `pointerdown`, `pointermove`, `pointerup`
+- `getBoundingClientRect()`
+- Clamp-logica
+
+Dit zorgt ervoor dat kaarten binnen hun container blijven.
+
+---
+
+## Polaroid stack loop
+
+Elke paar seconden wordt de bovenste foto achteraan geplaatst.
+
+```js
+stack.appendChild(first);
+```
+
+Gecombineerd met opacity voor een zachtere overgang.
+
+---
+
+## Quiz 
+
+- `#quizForm`
+- `data-correct`
+- `change` event
+- `aria-live` feedback
+
+```js
+const isCorrect = input.dataset.correct === "true";
+```
+
+Dit zorgt voor directe en toegankelijke feedback.
+
+---
+
+## Random movie API
+
+Fetch naar school endpoint.  
+Random index genereren en DOM updaten.
+
+```js
+const randomIndex = Math.floor(Math.random() * allStudents.length);
+```
+
+Hier leerde ik beter omgaan met async data.
+
+---
+
+# Weekly Nerd – Kilian Valkhof
+
 
 ## Wie was er?
 
@@ -220,11 +226,10 @@ Dit is vooral handig om responsive gedrag en media queries te testen.
 
 Wat mij vooral bijbleef, is dat veel dingen die wij snel met JavaScript oplossen, eigenlijk al mogelijk zijn met HTML en CSS.
 
-Hij liet bijvoorbeeld het `<dialog>` element zien als eenvoudige oplossing voor een pop-up.
-
+Hij liet bijvoorbeeld het `<dialog>` element zien als eenvoudige oplossing voor een pop-up.  
 Dat was voor mij een belangrijk inzicht.
 
-Ik merk dat ik snel denk:
+Ik merk dat ik snel denk:  
 “Dit moet met JavaScript.”
 
 Maar soms kan het simpeler.
@@ -236,7 +241,7 @@ Maar soms kan het simpeler.
 - Het web heeft al veel ingebouwde functionaliteit.
 - Minder JavaScript kan je code overzichtelijker maken.
 - Simpele oplossingen zijn vaak stabieler.
-- Eerst kijken wat HTML en CSS kunnen.
+- Eerst kijken wat HTML en CSS kunnen voordat je naar JS grijpt.
 
 ---
 
@@ -244,113 +249,178 @@ Maar soms kan het simpeler.
 
 In mijn eigen OnePager heb ik het `<dialog>` element gebruikt voor een pop-up.
 
-- HTML → structuur
-- CSS → styling
-- JavaScript → timing (automatisch openen via timer)
+De verdeling daarbij was:
 
-Ik heb geprobeerd bewuster na te denken over wanneer ik JavaScript écht nodig heb.
+- HTML → structuur  
+- CSS → styling  
+- JavaScript → timing (automatisch openen via een timer)
+
+Hierdoor bleef de basis semantisch correct en gebruikte ik JavaScript alleen waar het echt nodig was.
+
+Ik heb geprobeerd bewuster na te denken over wanneer JavaScript écht een meerwaarde heeft, en wanneer HTM
+---
+
+# Algemene Reflectie
+
+Dit project was voor mij meer dan alleen “een website maken”.  
+Het was een week waarin ik opnieuw moest wennen aan HTML, CSS en vooral JavaScript.
+
+Wat ik merkte tijdens dit proces:
+
+- Ik begin enthousiast en wil veel tegelijk.
+- Ik onderschat hoe lang technische onderdelen kosten.
+- Ik leer het meest wanneer iets eerst níet werkt.
+
+Vooral bij de JavaScript-interacties merkte ik dat mijn kennis nog niet altijd diep genoeg is om alles direct zelf te bouwen. Soms moest ik echt terug naar de basis: wat doet een event listener precies? Wat gebeurt er als je een element verplaatst in de DOM? Waarom werkt iets niet zoals ik verwacht?
+
+De custom cursor is daar een goed voorbeeld van.  
+Daar heb ik bewust hulp bij gebruikt, omdat ik in korte tijd wilde begrijpen hoe zo’n animatie technisch in elkaar zit. Eerst voelde dat als “valsspelen”, maar eigenlijk was het een leerstrategie: ik heb de code daarna stap voor stap uitgeplozen tot ik begreep wat elke regel deed.
+
+Wat ik vooral heb geleerd deze week:
+
+- Structuur is belangrijker dan snelheid.
+- Stabiliteit is belangrijker dan zoveel mogelijk features.
+- Debuggen is geen teken dat je iets niet kan — het *is* het leerproces.
+- Het web heeft vaak al oplossingen die simpeler zijn dan je denkt.
+
+Ik merk dat ik steeds minder denk in:  
+“Hoe krijg ik dit werkend?”
+
+En steeds meer in:  
+“Waarom werkt dit zo?”
+
+Dat verschil voelt klein, maar is voor mij een grote stap.
+
+Tot slot zie ik dit project echt als een startpunt.  
+Niet alles is perfect, maar ik begrijp veel beter hoe interactie, data en structuur samenwerken. Dat maakt dit een waardevol leermoment waar ik in de komende weken verder op kan bouwen.
+
 
 ---
 
-# Algemene Reflectie Tot Nu Toe
 
-Wat ik merk in dit project:
+# Bronnen
 
-- Ik experimenteer graag.
-- Ik probeer veel nieuwe dingen.
-- Ik onderschat soms hoeveel tijd technische onderdelen kosten.
-- Debuggen hoort er gewoon bij.
+## JavaScript – Basis & Interactie
 
-Maar ik merk ook dat ik steeds beter begrijp hoe het web werkt.
-
-Niet alleen hoe iets eruitziet, maar:
-- Hoe elementen zich gedragen
-- Hoe data wordt opgehaald
-- Hoe interactie technisch wordt aangestuurd
-
-Dit project voelt niet alleen als “een website maken”,  
-maar echt als leren denken als developer.
+MDN – Fetch API  
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API  
 
 
-# Weekly Nerd – Kilian Valkhof (Polyplane)
+MDN – Async / Await  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function  
 
-## Wie was er?
+MDN – requestAnimationFrame  
+https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame  
 
-Tijdens deze Weekly Nerd kwam Kilian Valkhof spreken, de maker van Polyplane.
+MDN – Pointer Events  
+https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events  
 
-Polyplane is een tool waarmee je je website tegelijkertijd kunt bekijken op meerdere schermformaten, zoals desktop, tablet en mobiel. Het is bedoeld om snel te zien hoe responsive je website echt is en of je media queries goed werken.
+JavaScript.info – DOM manipulation  
+https://javascript.info/dom-nodes  
 
-Als front-end student vond ik dit meteen interessant, omdat responsive design iets is waar ik zelf ook veel mee bezig ben.
+CSS-Tricks – requestAnimationFrame uitleg  
+https://css-tricks.com/using-requestanimationframe/  
 
----
+Traversy Media – JavaScript DOM Crash Course  
+https://www.youtube.com/watch?v=0ik6X4DJKCc  
 
-## Wat is mij bijgebleven?
-
-Wat mij vooral is bijgebleven, is dat veel dingen die wij snel met JavaScript proberen op te lossen, eigenlijk al mogelijk zijn met HTML en CSS.
-
-Hij liet bijvoorbeeld het `<dialog>` element zien.  
-In plaats van zelf een hele pop-up te bouwen met divs en veel JavaScript, kun je gebruikmaken van een ingebouwd HTML-element dat hier speciaal voor bedoeld is.
-
-Dat was voor mij echt een inzicht-moment.
-
-Ik merk namelijk dat ik vaak denk:
-"Dit moet met JavaScript."
-
-Maar soms kan het veel simpeler.
+Web Dev Simplified – JavaScript DOM Manipulation  
+https://www.youtube.com/watch?v=y17RuWkWdn8  
 
 ---
 
-## Wat heb ik hiervan geleerd?
+## DOM & Interactie
 
-Ik heb geleerd dat:
+MDN – querySelector  
+https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector  
 
-- Het web al veel ingebouwde functionaliteit heeft.
-- Minder JavaScript je code overzichtelijker kan maken.
-- Simpelere oplossingen vaak stabieler zijn.
-- Je eerst moet kijken wat HTML en CSS kunnen voordat je naar JavaScript grijpt.
+MDN – classList  
+https://developer.mozilla.org/en-US/docs/Web/API/Element/classList  
 
-Tijdens het werken aan mijn eigen OnePager merkte ik ook dat JavaScript snel complex wordt.  
-Bijvoorbeeld bij API’s of foutmeldingen — je bent veel tijd kwijt aan debuggen.
+MDN – dataset property  
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset  
 
-Deze Weekly Nerd voelde daarom als een reminder:
-Het hoeft niet altijd ingewikkeld.
-
----
-
-## Hoe heb ik dit toegepast?
-
-Ik heb in mijn eigen OnePager het `<dialog>` element gebruikt voor een pop-up.
-
-De structuur is HTML.  
-De styling is CSS.  
-Alleen de timing (via een timer) heb ik met JavaScript gedaan, zodat de pop-up automatisch verschijnt na een paar seconden.
-
-Dus ik heb geprobeerd bewuster om te gaan met wanneer ik JavaScript gebruik.
+FreeCodeCamp – DOM manipulation basics  
+https://www.freecodecamp.org/news/javascript-dom-manipulation/  
 
 ---
 
-## Slides van de presentatie
+## CSS & Animatie
 
-Hieronder een paar foto’s die ik tijdens de presentatie heb gemaakt:
+MDN – CSS Custom Properties  
+https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties  
 
-![Slide 1](./images/slide_1.jpg)
-![Slide 1](./images/slide_2.jpg)
-![Slide 1](./images/slide_3.jpg)
+MDN – transform  
+https://developer.mozilla.org/en-US/docs/Web/CSS/transform  
 
-Deze slides laten goed zien dat veel oplossingen simpeler zijn dan we denken.
+MDN – transition  
+https://developer.mozilla.org/en-US/docs/Web/CSS/transition  
+
+CSS-Tricks – Guide to CSS Animations  
+https://css-tricks.com/almanac/properties/a/animation/  
+
+A Complete Guide to Flexbox – CSS-Tricks  
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/  
+
+CSS-Tricks / Creative Coding uitleg (requestAnimationFrame concept)  
+https://www.youtube.com/watch?v=Yl9f1eYzVY8  
+
+The Net Ninja – JavaScript Animations  
+https://www.youtube.com/watch?v=gm1QtePAYTM  
+
+Kevin Powell – CSS Animations for Beginners  
+https://www.youtube.com/watch?v=YszONjKpgg4  
+
+Kevin Powell – CSS Custom Properties  
+https://www.youtube.com/watch?v=PHO6TBq_auI  
 
 ---
 
-## Persoonlijke reflectie
+### Drag & Pointer Events
 
-Deze Weekly Nerd heeft mij vooral laten nadenken over hoe ik code schrijf.
+Web Dev Simplified – Drag and Drop JavaScript  
+https://www.youtube.com/watch?v=jfYWwQrtzzY  
 
-Ik ben iemand die graag experimenteert en nieuwe dingen probeert (zoals API’s en interactieve elementen).  
-Maar soms is het goed om even terug te gaan naar de basis.
+The Net Ninja – Drag and Drop Tutorial  
+https://www.youtube.com/watch?v=C22hQKE_32c  
 
-Niet alles hoeft met extra JavaScript opgelost te worden.  
-Soms is minder juist sterker.
+---
 
-Dat ga ik zeker meenemen in mijn volgende projecten.
+## Toegankelijkheid
+
+MDN – ARIA live regions  
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions  
+
+Web.dev – Accessibility basics  
+https://web.dev/accessibility/  
+
+---
+
+## API’s & Data
+
+WorldTime API  
+https://worldtimeapi.org/  
+
+Open-Meteo API  
+https://open-meteo.com/  
+
+FDND Directus API (schoolomgeving)  
+
+Web Dev Simplified – Fetch API Tutorial  
+https://www.youtube.com/watch?v=Oive66jrwBs  
+
+The Net Ninja – JavaScript Async/Await Tutorial  
+https://www.youtube.com/watch?v=V_Kr9OSfDeU  
+
+
+---
+
+## Inspiratie & Tools
+
+Polyplane – Kilian Valkhof  
+https://polyplane.app/  
+
+CodePen (interactie inspiratie)  
+https://codepen.io/  
 
 
