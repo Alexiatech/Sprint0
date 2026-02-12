@@ -14,6 +14,9 @@
 - [Dag 6 – Fine-tuning & Betere Keuzes](#dag-6--fine-tuning--betere-keuzes)
 - [Weekly Nerd – Kilian Valkhof (Polyplane)](#weekly-nerd--kilian-valkhof-polyplane)
 - [Algemene Reflectie Tot Nu Toe](#algemene-reflectie-tot-nu-toe)
+- [Header one pager](#Header--–--Tijdwidget (API + fallback))
+- [Custom Cursor (3 lagen)](#custom-cursor-3-lagen)
+- 
 
 # OnePager 
 
@@ -380,4 +383,122 @@ Ik liep tegen twee dingen aan:
 Daarom heb ik bewust mijn scope verkleind en eerst één stabiele feature afgerond. Dit heeft me geleerd om eerder prioriteiten te stellen en mijn planning strakker te maken.
 
 
+## Custom Cursor (3 lagen)
+
+Voor mijn website heb ik een custom cursor toegevoegd.  
+Dit element is puur decoratief en bedoeld om de site interactiever en speelser te laten aanvoelen.
+
+Ik wilde hier meer over leren, omdat het een combinatie is van:
+- CSS positionering
+- JavaScript animatie
+- Performance optimalisatie
+
+Tijdens het bouwen liep ik vast in een bug waarbij de cursor niet soepel bewoog.  
+Hier heb ik hulp bij gevraagd aan ChatGPT. Uiteindelijk heb ik geleerd dat `requestAnimationFrame()` beter werkt dan bijvoorbeeld `setInterval()`, omdat het meeloopt met de refresh rate van de browser.
+
+Daarnaast heb ik online research gedaan naar `pointer-events` en media queries voor hover-ondersteuning.
+
+---
+
+### HTML
+
+De cursor bestaat uit drie losse divs.  
+Ze zijn decoratief, daarom gebruik ik `aria-hidden="true"`.
+
+~~~html
+<div class="cursor c1" aria-hidden="true"></div>
+<div class="cursor c2" aria-hidden="true"></div>
+<div class="cursor c3" aria-hidden="true"></div>
+~~~
+
+---
+
+### CSS
+
+De cursors zijn `position: fixed` zodat ze altijd boven de pagina blijven.  
+Met `pointer-events: none;` zorg ik dat ze geen klik-interactie blokkeren.
+
+~~~css
+.cursor {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.c1 { width: 18px; height: 18px; }
+.c2 { width: 12px; height: 12px; }
+.c3 { width: 7px;  height: 7px;  }
+
+@media (hover: none) {
+  .cursor { display: none; }
+}
+~~~
+
+---
+
+### JavaScript
+
+In JavaScript luister ik naar `mousemove`.  
+Elke cursor heeft een eigen snelheid, waardoor een “trailing” effect ontstaat.
+
+~~~js
+(() => {
+  const cursors = document.querySelectorAll(".cursor");
+  if (!cursors.length) return;
+
+  const isTouch = matchMedia("(hover: none)").matches;
+  if (isTouch) return;
+
+  let mouseX = 0;
+  let mouseY = 0;
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  const positions = [
+    { x: 0, y: 0 },
+    { x: 0, y: 0 },
+    { x: 0, y: 0 },
+  ];
+
+  const speeds = [0.18, 0.12, 0.07];
+
+  function animate() {
+    positions.forEach((pos, i) => {
+      pos.x += (mouseX - pos.x) * speeds[i];
+      pos.y += (mouseY - pos.y) * speeds[i];
+
+      cursors[i].style.left = `${pos.x}px`;
+      cursors[i].style.top = `${pos.y}px`;
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+})();
+~~~
+
+---
+
+### Wat heb ik hiervan geleerd?
+
+- `requestAnimationFrame()` zorgt voor soepelere animaties dan een gewone interval.
+- `pointer-events: none;` is essentieel zodat de cursor geen interactie blokkeert.
+- Niet elk effect werkt goed op mobiele apparaten → daarom heb ik een hover-check toegevoegd.
+
+Bronnen:
+
+MDN – requestAnimationFrame  
+https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame  
+
+MDN – pointer-events  
+https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events  
+
+MDN – @media (hover)  
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover
 
