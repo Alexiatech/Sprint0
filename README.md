@@ -237,20 +237,99 @@ Voor een week werk ben ik trots op het resultaat.
 
 # Bronnen
 
+# Bronnen
+
+## JavaScript – Basis & Interactie
+
 MDN – Fetch API  
 https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API  
+
+MDN – Using Fetch  
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch  
+
+MDN – Async / Await  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function  
 
 MDN – requestAnimationFrame  
 https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame  
 
-MDN – pointer-events  
-https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events  
+MDN – Pointer Events  
+https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events  
 
-MDN – getBoundingClientRect  
-https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect  
+JavaScript.info – Events & Event Loop uitleg  
+https://javascript.info/events  
 
-MDN – addEventListener  
-https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener  
+JavaScript.info – DOM manipulation  
+https://javascript.info/dom-nodes  
 
-MDN – aria-live  
+CSS-Tricks – requestAnimationFrame uitleg  
+https://css-tricks.com/using-requestanimationframe/  
+
+---
+
+## DOM & Interactie
+
+MDN – querySelector  
+https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector  
+
+MDN – classList  
+https://developer.mozilla.org/en-US/docs/Web/API/Element/classList  
+
+MDN – dataset property  
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset  
+
+FreeCodeCamp – DOM manipulation basics  
+https://www.freecodecamp.org/news/javascript-dom-manipulation/  
+
+---
+
+## CSS & Animatie
+
+MDN – CSS Custom Properties  
+https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties  
+
+MDN – transform  
+https://developer.mozilla.org/en-US/docs/Web/CSS/transform  
+
+MDN – transition  
+https://developer.mozilla.org/en-US/docs/Web/CSS/transition  
+
+CSS-Tricks – Guide to CSS Animations  
+https://css-tricks.com/almanac/properties/a/animation/  
+
+A Complete Guide to Flexbox – CSS-Tricks  
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/  
+
+---
+
+## Toegankelijkheid
+
+MDN – ARIA live regions  
 https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions  
+
+Web.dev – Accessibility basics  
+https://web.dev/accessibility/  
+
+---
+
+## API’s & Data
+
+WorldTime API  
+https://worldtimeapi.org/  
+
+Open-Meteo API  
+https://open-meteo.com/  
+
+FDND Directus API (schoolomgeving)  
+
+---
+
+## Inspiratie & Tools
+
+Polyplane – Kilian Valkhof  
+https://polyplane.app/  
+
+CodePen (interactie inspiratie)  
+https://codepen.io/  
+
+
