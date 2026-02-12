@@ -14,9 +14,12 @@
 - [Dag 6 – Fine-tuning & Betere Keuzes](#dag-6--fine-tuning--betere-keuzes)
 - [Weekly Nerd – Kilian Valkhof (Polyplane)](#weekly-nerd--kilian-valkhof-polyplane)
 - [Algemene Reflectie Tot Nu Toe](#algemene-reflectie-tot-nu-toe)
-- [Header one pager](#Header--–--Tijdwidget (API + fallback))
-- [Custom Cursor (3 lagen)](#custom-cursor-3-lagen)
-- 
+- [Boeken-sectie (Hover + dynamische samenvatting)](#boeken-sectie-hover--dynamische-samenvatting)
+- [Quiz-sectie (Radio inputs + feedback)](#quiz-sectie-radio-inputs--feedback)
+- [API – Favoriete films van klasgenoten](#api--favoriete-films-van-klasgenoten)
+- [Custom Cursor (interactie-detail)](#custom-cursor-interactie-detail)
+- [Gebruik van hulpmiddelen](#gebruik-van-hulpmiddelen)
+- [Belangrijk inzicht](#belangrijk-inzicht)
 
 # OnePager 
 
@@ -288,217 +291,117 @@ Niet alleen hoe iets eruitziet, maar:
 Dit project voelt niet alleen als “een website maken”,  
 maar echt als leren denken als developer.
 
+## Main – Belangrijkste onderdelen
 
-# Header – Tijdwidget (API + fallback)
-
-In de header heb ik een tijdwidget geplaatst die synchroniseert met een externe API. Oorspronkelijk wilde ik meerdere widgets (weer, quotes), maar door tijdsdruk heb ik ervoor gekozen om één feature goed en stabiel uit te werken.
-
----
-
-## HTML
-
-Ik gebruik een semantische `<header>` met een `<time>` element voor de klok.
-
-~~~html
-<header class="topbar">
-  <section class="timebox" aria-label="Time">
-    <h2 class="sr-only">De tijd</h2>
-    <time id="clock" class="clock"></time>
-  </section>
-</header>
-~~~
-
-**Waarom `<time>`?**  
-Dit element is bedoeld voor tijd/datum en is semantisch correct.
+In de main van mijn OnePager heb ik meerdere interactieve secties gebouwd.  
+Hieronder licht ik kort de belangrijkste onderdelen toe.
 
 ---
 
-## CSS
+### 📚 Boeken-sectie (Hover + dynamische samenvatting)
 
-De header is opgebouwd met flexbox:
+In deze sectie toon ik boeken die ik recent heb gelezen.  
+Wanneer je over een cover hovert, verschijnt de bijbehorende samenvatting in een vaste summary-box.
 
-~~~css
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-}
+**Wat heb ik gedaan:**
+- Covers overlappend gepositioneerd met flexbox
+- Hover-effect toegevoegd met `transform` en `z-index`
+- Met JavaScript de juiste titel en tekst in een vaste `.books__summary` gezet
 
-.clock {
-  font-size: var(--h1-size);
-  letter-spacing: 0.1em;
-}
-~~~
-
-Ik werk met CSS custom properties (design tokens) zodat kleuren automatisch wisselen tussen dark/light mode via `prefers-color-scheme`.
-
-**Bron:**  
-MDN – CSS Custom Properties  
-https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties  
-
----
-
-## JavaScript
-
-De klok synchroniseert met WorldTimeAPI en loopt daarna lokaal door. Elke minuut wordt opnieuw gesynchroniseerd.
-
-Belangrijk idee:
-
-- API geeft `unixtime`
-- Ik gebruik `performance.now()` om tijdsverschil bij te houden
-- Er is een fallback naar lokale tijd als de API faalt
-
-~~~js
-const sync = async () => {
-  try {
-    const res = await fetch(
-      "https://worldtimeapi.org/api/timezone/Europe/Amsterdam"
-    );
-    const data = await res.json();
-    baseUnixMs = data.unixtime * 1000;
-    basePerf = performance.now();
-  } catch {
-    baseUnixMs = null; // fallback naar lokale tijd
-  }
-};
-~~~
+Hier liep ik tegen layout-problemen aan (margin, positionering en “layout shifts”).  
+Uiteindelijk heb ik gekozen voor één vaste summary-box in plaats van tekst boven elk boek.
 
 **Bronnen:**
-
-MDN – Fetch API  
-https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API  
-
-MDN – performance.now()  
-https://developer.mozilla.org/en-US/docs/Web/API/Performance/now  
+- MDN – querySelector & DOM manipulatie  
+  https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector  
+- MDN – transform property  
+  https://developer.mozilla.org/en-US/docs/Web/CSS/transform  
 
 ---
 
-## Proces & reflectie
+### 🎮 Quiz-sectie (Radio inputs + feedback)
 
-Ik liep tegen twee dingen aan:
+Ik heb een kleine quiz gemaakt om de pagina persoonlijker te maken.
 
-- Te veel features tegelijk willen bouwen (weer + tijd + quotes).
-- Async functies die errors gaven door timing.
+**Wat heb ik gedaan:**
+- Semantische `<form>` gebruikt
+- Radio buttons gekoppeld via `name`
+- `data-correct` attribuut gebruikt om juiste antwoord te herkennen
+- Feedback getoond via een `change` event
 
-Daarom heb ik bewust mijn scope verkleind en eerst één stabiele feature afgerond. Dit heeft me geleerd om eerder prioriteiten te stellen en mijn planning strakker te maken.
+Hier merkte ik dat JavaScript snel complex wordt als je states moet resetten.
 
-
-## Custom Cursor (3 lagen)
-
-Voor mijn website heb ik een custom cursor toegevoegd.  
-Dit element is puur decoratief en bedoeld om de site interactiever en speelser te laten aanvoelen.
-
-Ik wilde hier meer over leren, omdat het een combinatie is van:
-- CSS positionering
-- JavaScript animatie
-- Performance optimalisatie
-
-Tijdens het bouwen liep ik vast in een bug waarbij de cursor niet soepel bewoog.  
-Hier heb ik hulp bij gevraagd aan ChatGPT. Uiteindelijk heb ik geleerd dat `requestAnimationFrame()` beter werkt dan bijvoorbeeld `setInterval()`, omdat het meeloopt met de refresh rate van de browser.
-
-Daarnaast heb ik online research gedaan naar `pointer-events` en media queries voor hover-ondersteuning.
+**Bronnen:**
+- MDN – Form element  
+  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form  
+- MDN – addEventListener  
+  https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener  
 
 ---
 
-### HTML
+### 🎬 API – Favoriete films van klasgenoten
 
-De cursor bestaat uit drie losse divs.  
-Ze zijn decoratief, daarom gebruik ik `aria-hidden="true"`.
+In plaats van een random quote API heb ik gekozen voor iets persoonlijkers:  
+de favoriete films van mijn klasgenoten (via de school API).
 
-~~~html
-<div class="cursor c1" aria-hidden="true"></div>
-<div class="cursor c2" aria-hidden="true"></div>
-<div class="cursor c3" aria-hidden="true"></div>
-~~~
+**Wat heb ik gedaan:**
+- Data ophalen via `fetch`
+- JSON verwerken
+- Random index genereren
+- Resultaat tonen in de DOM
 
----
+Hier leerde ik beter omgaan met:
+- Async/await
+- JSON-structuur
+- Error handling
 
-### CSS
-
-De cursors zijn `position: fixed` zodat ze altijd boven de pagina blijven.  
-Met `pointer-events: none;` zorg ik dat ze geen klik-interactie blokkeren.
-
-~~~css
-.cursor {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-}
-
-.c1 { width: 18px; height: 18px; }
-.c2 { width: 12px; height: 12px; }
-.c3 { width: 7px;  height: 7px;  }
-
-@media (hover: none) {
-  .cursor { display: none; }
-}
-~~~
+**Bron:**
+- MDN – Fetch API  
+  https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API  
 
 ---
 
-### JavaScript
+### Custom Cursor (interactie-detail)
 
-In JavaScript luister ik naar `mousemove`.  
-Elke cursor heeft een eigen snelheid, waardoor een “trailing” effect ontstaat.
+Ik heb een custom cursor gemaakt met drie lagen die de muis volgen.  
+Dit is een decoratief element dat zorgt voor extra beleving.
 
-~~~js
-(() => {
-  const cursors = document.querySelectorAll(".cursor");
-  if (!cursors.length) return;
+Ik heb hier deels hulp bij gekregen van ChatGPT, vooral bij het verbeteren van de animatie met `requestAnimationFrame()`.
 
-  const isTouch = matchMedia("(hover: none)").matches;
-  if (isTouch) return;
-
-  let mouseX = 0;
-  let mouseY = 0;
-
-  document.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  const positions = [
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-  ];
-
-  const speeds = [0.18, 0.12, 0.07];
-
-  function animate() {
-    positions.forEach((pos, i) => {
-      pos.x += (mouseX - pos.x) * speeds[i];
-      pos.y += (mouseY - pos.y) * speeds[i];
-
-      cursors[i].style.left = `${pos.x}px`;
-      cursors[i].style.top = `${pos.y}px`;
-    });
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-})();
-~~~
+**Bronnen:**
+- MDN – requestAnimationFrame  
+  https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame  
+- MDN – pointer-events  
+  https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events  
 
 ---
 
-### Wat heb ik hiervan geleerd?
+## Gebruik van hulpmiddelen
 
-- `requestAnimationFrame()` zorgt voor soepelere animaties dan een gewone interval.
-- `pointer-events: none;` is essentieel zodat de cursor geen interactie blokkeert.
-- Niet elk effect werkt goed op mobiele apparaten → daarom heb ik een hover-check toegevoegd.
+In dit project heb ik:
 
-Bronnen:
+- Ongeveer 70–80% zelf gebouwd en uitgezocht
+- Ongeveer 20–30% ondersteuning gekregen van ChatGPT
+- MDN en officiële documentatie gebruikt als referentie
 
-MDN – requestAnimationFrame  
-https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame  
+Wanneer ik ChatGPT gebruikte, probeerde ik altijd:
+- De code te begrijpen
+- Deze aan te passen aan mijn eigen structuur
+- Niet blind te kopiëren
 
-MDN – pointer-events  
-https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events  
+---
 
-MDN – @media (hover)  
-https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover
+## Belangrijk inzicht
+
+Ik heb geleerd dat:
+
+- Interactie technisch vaak complexer is dan het lijkt.
+- Scope beperken belangrijk is.
+- Stabiliteit belangrijker is dan “zoveel mogelijk features”.
+- Het web al veel native oplossingen biedt.
+
+Deze OnePager voelt voor mij als een leerproces waarin ik ben gegroeid van “iets werkend krijgen” naar “begrijpen waarom het werkt”.
+
+
+
 
