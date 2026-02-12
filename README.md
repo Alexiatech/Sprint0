@@ -222,16 +222,38 @@ Dit inzicht heb ik meegenomen in mijn eigen project.
 
 # Algemene Reflectie
 
-Wat ik merk in dit project:
+Dit project was voor mij meer dan alleen “een website maken”.  
+Het was een week waarin ik opnieuw moest wennen aan HTML, CSS en vooral JavaScript.
 
-- Ik experimenteer graag.
-- Ik onderschat soms hoeveel tijd technische onderdelen kosten.
-- Debuggen hoort erbij.
-- Ik leer steeds meer denken in structuur.
+Wat ik merkte tijdens dit proces:
 
-Ik ben van “iets werkend krijgen” gegaan naar “begrijpen waarom het werkt”.
+- Ik begin enthousiast en wil veel tegelijk.
+- Ik onderschat hoe lang technische onderdelen kosten.
+- Ik leer het meest wanneer iets eerst níet werkt.
 
-Voor een week werk ben ik trots op het resultaat.
+Vooral bij de JavaScript-interacties merkte ik dat mijn kennis nog niet altijd diep genoeg is om alles direct zelf te bouwen. Soms moest ik echt terug naar de basis: wat doet een event listener precies? Wat gebeurt er als je een element verplaatst in de DOM? Waarom werkt iets niet zoals ik verwacht?
+
+De custom cursor is daar een goed voorbeeld van.  
+Daar heb ik bewust hulp bij gebruikt, omdat ik in korte tijd wilde begrijpen hoe zo’n animatie technisch in elkaar zit. Eerst voelde dat als “valsspelen”, maar eigenlijk was het een leerstrategie: ik heb de code daarna stap voor stap uitgeplozen tot ik begreep wat elke regel deed.
+
+Wat ik vooral heb geleerd deze week:
+
+- Structuur is belangrijker dan snelheid.
+- Stabiliteit is belangrijker dan zoveel mogelijk features.
+- Debuggen is geen teken dat je iets niet kan — het *is* het leerproces.
+- Het web heeft vaak al oplossingen die simpeler zijn dan je denkt.
+
+Ik merk dat ik steeds minder denk in:  
+“Hoe krijg ik dit werkend?”
+
+En steeds meer in:  
+“Waarom werkt dit zo?”
+
+Dat verschil voelt klein, maar is voor mij een grote stap.
+
+Tot slot zie ik dit project echt als een startpunt.  
+Niet alles is perfect, maar ik begrijp veel beter hoe interactie, data en structuur samenwerken. Dat maakt dit een waardevol leermoment waar ik in de komende weken verder op kan bouwen.
+
 
 ---
 
