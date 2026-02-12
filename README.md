@@ -265,6 +265,12 @@ https://javascript.info/dom-nodes
 CSS-Tricks – requestAnimationFrame uitleg  
 https://css-tricks.com/using-requestanimationframe/  
 
+Traversy Media – JavaScript DOM Crash Course  
+https://www.youtube.com/watch?v=0ik6X4DJKCc  
+
+Web Dev Simplified – JavaScript DOM Manipulation  
+https://www.youtube.com/watch?v=y17RuWkWdn8  
+
 ---
 
 ## DOM & Interactie
@@ -300,6 +306,28 @@ https://css-tricks.com/almanac/properties/a/animation/
 A Complete Guide to Flexbox – CSS-Tricks  
 https://css-tricks.com/snippets/css/a-guide-to-flexbox/  
 
+CSS-Tricks / Creative Coding uitleg (requestAnimationFrame concept)  
+https://www.youtube.com/watch?v=Yl9f1eYzVY8  
+
+The Net Ninja – JavaScript Animations  
+https://www.youtube.com/watch?v=gm1QtePAYTM  
+
+Kevin Powell – CSS Animations for Beginners  
+https://www.youtube.com/watch?v=YszONjKpgg4  
+
+Kevin Powell – CSS Custom Properties  
+https://www.youtube.com/watch?v=PHO6TBq_auI  
+
+---
+
+### Drag & Pointer Events
+
+Web Dev Simplified – Drag and Drop JavaScript  
+https://www.youtube.com/watch?v=jfYWwQrtzzY  
+
+The Net Ninja – Drag and Drop Tutorial  
+https://www.youtube.com/watch?v=C22hQKE_32c  
+
 ---
 
 ## Toegankelijkheid
@@ -321,6 +349,13 @@ Open-Meteo API
 https://open-meteo.com/  
 
 FDND Directus API (schoolomgeving)  
+
+Web Dev Simplified – Fetch API Tutorial  
+https://www.youtube.com/watch?v=Oive66jrwBs  
+
+The Net Ninja – JavaScript Async/Await Tutorial  
+https://www.youtube.com/watch?v=V_Kr9OSfDeU  
+
 
 ---
 
