@@ -7,8 +7,6 @@
   const cursors = document.querySelectorAll(".cursor");
   if (!cursors.length) return;
 
-  // Op touch devices doen we cursor in CSS uit,
-  // maar dit voorkomt ook onnodige JS.
   const isTouch = matchMedia("(hover: none)").matches;
   if (isTouch) return;
 
@@ -102,7 +100,7 @@
 
     feedback.textContent = isCorrect
       ? "✅ Goed!"
-      : "❌ Nee helaas fout";
+      : "❌ Nee helaas";
   });
 })();
 
@@ -260,61 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
   resetTimer();
 });
 
-/* =========================================================
-   🌦️ WEATHER (Open-Meteo)
-   - browser vraagt geolocation permissie
-   - daarna fetch naar open-meteo API
-========================================================= */
-(() => {
-  const btn = document.getElementById("wxBtn");
-  const status = document.getElementById("wxStatus");
-  if (!btn || !status) return;
 
-  const codeToText = (code) => {
-    if (code === 0) return "Clear";
-    if ([1, 2, 3].includes(code)) return "Cloudy";
-    if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(code)) return "Rain";
-    if ([71, 73, 75, 85, 86].includes(code)) return "Snow";
-    return "Mixed";
-  };
-
-  btn.addEventListener("click", () => {
-    if (!("geolocation" in navigator)) {
-      status.textContent = "Geolocation is not supported in this browser.";
-      return;
-    }
-
-    status.textContent = "Getting your location…";
-
-    navigator.geolocation.getCurrentPosition(async (pos) => {
-      try {
-        const { latitude, longitude } = pos.coords;
-        status.textContent = "Fetching weather…";
-
-        const url =
-          `https://api.open-meteo.com/v1/forecast` +
-          `?latitude=${latitude}&longitude=${longitude}` +
-          `&current=temperature_2m,weather_code,wind_speed_10m` +
-          `&timezone=auto`;
-
-        const res = await fetch(url);
-        if (!res.ok) throw new Error("Weather request failed");
-        const data = await res.json();
-
-        const t = data.current?.temperature_2m;
-        const w = data.current?.weather_code;
-        const wind = data.current?.wind_speed_10m;
-
-        status.textContent = `Now: ${t}°C · ${codeToText(w)} · wind ${wind} km/h`;
-      } catch (err) {
-        console.error(err);
-        status.textContent = "Could not load weather.";
-      }
-    }, () => {
-      status.textContent = "Location denied / unavailable.";
-    }, { enableHighAccuracy: false, timeout: 8000 });
-  });
-})();
 
 /* =========================================================
    🕒 CLOCK (WorldTimeAPI + fallback)
